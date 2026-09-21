@@ -11,6 +11,7 @@ Puedes explorar las herramientas interactivas directamente desde el navegador en
 
 👉 **[Portal Ejecutivo del Proyecto](https://crdiazu.github.io/ISM/)**
 
+* 📋 **[Informe de Avance y Estado de Situación (Fase 1)](https://crdiazu.github.io/ISM/informe-de-avance.html)**: Reporte ejecutivo oficial (85% de avance, semáforo de plataformas y agenda de reuniones).
 * 📊 **[Carta Gantt Interactiva](https://crdiazu.github.io/ISM/carta-gantt-interactiva.html)**: Visualizador dinámico de fases de consultoría, tareas por área (Tecnología, Marketing, Operaciones) e hitos clave.
 * 🏛️ **[Arquitectura del Stack Tecnológico (Archify)](https://crdiazu.github.io/ISM/archify-stack-ism.html)**: Diagrama interactivo de relaciones, plataformas y flujos de datos del ecosistema institucional.
 * 🔄 **[Workflow y Cronograma de Operaciones](https://crdiazu.github.io/ISM/archify-cronograma-ism.html)**: Flujo de trabajo por carriles (Lanes) con trazado interactivo.
@@ -58,6 +59,7 @@ Además de la ejecución de marketing, el rol principal abarca la **asesoría en
 - `09-Protocolo-Contenido.md`: Manual de estilo, directrices de imagen y protocolo de publicaciones.
 - `10-Plan-Campana-Matricula-2027.md`: Plan estratégico para captación de matrículas 2027.
 - `11-Carta-Gantt-Cronograma.md`: Cronograma maestro de hitos y plazos de entrega.
+- `12-Informe-de-Avance-Fase-1.md`: Informe oficial de avance y estado de situación al 21 de septiembre de 2026 (85% Fase 1).
 - `Estudio-Mercado-ISM-Chile-2026.md`: Benchmark de mercado técnico profesional en Santiago.
 - `Plan Estratégico - ISM - Q4 2026.md`: Documento rector del plan estratégico para el cuarto trimestre.
 - `tutoriales/`: Guías de autoaprendizaje para la administración autónoma de cada plataforma del stack.

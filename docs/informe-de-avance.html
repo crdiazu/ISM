@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe de Avance — Fase 1 | Instituto Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --surface: #131B2E;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --primary: #3B82F6;
+      --primary-light: #60A5FA;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #EF4444;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(at 10% 10%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+                        radial-gradient(at 90% 90%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .nav-bar a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-bar a:hover { text-decoration: underline; }
+
+    .btn-print {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93C5FD;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print:hover {
+      background: var(--primary);
+      color: #FFF;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 3rem;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+
+    /* Meta details card */
+    .meta-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .meta-item .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .meta-item .val {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #FFF;
+    }
+
+    /* Progress bar card */
+    .progress-box {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .progress-percent {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: #34D399;
+      line-height: 1;
+    }
+
+    .progress-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      height: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      background: linear-gradient(90deg, #3B82F6, #10B981);
+      height: 100%;
+      border-radius: 9999px;
+      width: 85%;
+      transition: width 1s ease-in-out;
+    }
+
+    .progress-desc {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .icon {
+      font-size: 1.2rem;
+    }
+
+    /* Status Table */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 0.85rem;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--surface-border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .tag-pill {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag-green { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-yellow { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-red { background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+    /* Callout Card */
+    .alert-card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .alert-primary {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .alert-icon { font-size: 1.8rem; line-height: 1; }
+
+    .alert-body h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #FFF;
+    }
+
+    .alert-body p, .alert-body ul {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .alert-body ul {
+      margin-top: 0.5rem;
+      padding-left: 1.25rem;
+    }
+
+    .alert-body li { margin-bottom: 0.3rem; }
+
+    /* Grid of deliverables */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .del-item {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 0.85rem;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .del-item strong {
+      color: #FFF;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .del-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #FFF !important;
+        color: #111 !important;
+        padding: 0;
+      }
+      .nav-bar, .btn-print { display: none !important; }
+      .meta-box, .progress-box, .table-wrap, .del-item, .alert-card {
+        background: #FFF !important;
+        border: 1px solid #CCC !important;
+        color: #111 !important;
+        box-shadow: none !important;
+      }
+      th { background: #EEE !important; color: #111 !important; }
+      td, .del-item p, .alert-body p, .progress-desc { color: #333 !important; }
+      .meta-item .label { color: #666 !important; }
+      .meta-item .val { color: #000 !important; }
+      .badge-status { border: 1px solid #10B981 !important; color: #10B981 !important; }
+      h1, h2, h3, h4, strong { color: #000 !important; }
+      .progress-track { background: #EEE !important; }
+      .progress-fill { background: #3B82F6 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav-bar">
+      <a href="index.html">&larr; Volver al Portal Ejecutivo</a>
+      <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    </div>
+
+    <header>
+      <div class="badge-status">
+        <span>●</span> Fase 1 en Curso · 85% Completado
+      </div>
+      <h1>Informe de Avance y Estado de Situación</h1>
+      <p class="subtitle">Consultoría en Tecnología, Ecosistema Digital y Marketing · Instituto Santa María (ISM)</p>
+    </header>
+
+    <div class="meta-box">
+      <div class="meta-item">
+        <div class="label">Institución</div>
+        <div class="val">Instituto Santa María (ISM)</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Destinatarios</div>
+        <div class="val">Mary Luz Leal / Luis Rodríguez</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Período Evaluado</div>
+        <div class="val">19 Ago — 21 Sep 2026</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Fecha de Emisión</div>
+        <div class="val">21 de Septiembre de 2026</div>
+      </div>
+    </div>
+
+    <!-- Progress Overview -->
+    <div class="progress-box">
+      <div class="progress-header">
+        <div class="progress-title">Avance General — Fase 1 (Diagnóstico, Control y Estabilización)</div>
+        <div class="progress-percent">85%</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="progress-desc">
+        Meta de Fase 1 al 30 de septiembre en calendario. Mapeo de sistemas al 100%, seguridad blindada y planes rectores finalizados.
+      </div>
+    </div>
+
+    <!-- Estado de Plataformas -->
+    <section>
+      <h2><span class="icon">🚦</span> Matriz de Control por Plataforma</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Plataforma</th>
+              <th>Función</th>
+              <th>Estado</th>
+              <th>Situación Actual y Próxima Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sitio Web (WordPress)</strong></td>
+              <td>Portal ismchile.cl</td>
+              <td><span class="tag-pill tag-green">🟢 Bajo Control</span></td>
+              <td>Hosting y correos garantizados con Rafael Prato hasta dic 2026. Roadmap técnico redactado para Antonia Hordern.</td>
+            </tr>
+            <tr>
+              <td><strong>Meta Business Suite</strong></td>
+              <td>Facebook, Instagram & Ads</td>
+              <td><span class="tag-pill tag-yellow">🟡 En Traspaso</span></td>
+              <td>Página Providencia activa. Se requiere asignar rol de Administrador en la reunión del 22/09 para configurar pauta.</td>
+            </tr>
+            <tr>
+              <td><strong>WhatsApp Business</strong></td>
+              <td>Línea +56 9 9900 59968</td>
+              <td><span class="tag-pill tag-green">🟢 Activo</span></td>
+              <td>Equipo físico custodiado por Mary Luz. Mañana 22/09 se vincula a WhatsApp Web para monitoreo centralizado.</td>
+            </tr>
+            <tr>
+              <td><strong>Kommo (CRM)</strong></td>
+              <td>Pipeline comercial</td>
+              <td><span class="tag-pill tag-red">🔴 Acción Mañana</span></td>
+              <td>Bot requiere calibración. En reunión del 22/09 con chip telefónico se cambia correo a cuenta oficial y se activa 2FA.</td>
+            </tr>
+            <tr>
+              <td><strong>Chatfuel</strong></td>
+              <td>Chatbot WhatsApp / Web</td>
+              <td><span class="tag-pill tag-yellow">🟡 En Traspaso</span></td>
+              <td>Línea (+56 9 9520 06799). Se sincronizarán respuestas automáticas para no duplicar flujos de atención.</td>
+            </tr>
+            <tr>
+              <td><strong>Brevo</strong></td>
+              <td>Email Marketing Masivo</td>
+              <td><span class="tag-pill tag-green">🟢 Operativo</span></td>
+              <td>Cuenta verificada y base de datos lista para segmentación de la campaña de matrículas 2027.</td>
+            </tr>
+            <tr>
+              <td><strong>Make (Integromat)</strong></td>
+              <td>Automatizaciones</td>
+              <td><span class="tag-pill tag-yellow">🟡 En Traspaso</span></td>
+              <td>Escenarios documentados. Se traspasará titularidad y medio de pago corporativo.</td>
+            </tr>
+            <tr>
+              <td><strong>BSale & Banco</strong></td>
+              <td>Facturación y Cta Cte</td>
+              <td><span class="tag-pill tag-green">🟢 Traspasado</span></td>
+              <td>BSale bajo perfil de Mary Luz. Cta corriente y cheques en custodia de Don Luis Rodríguez.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Hitos Cumplidos -->
+    <section>
+      <h2><span class="icon">✅</span> Entregables y Documentación Finalizada</h2>
+      <div class="deliverables-grid">
+        <div class="del-item">
+          <strong>Plan Estratégico ISM (Q4 2026)</strong>
+          <p>Documento rector con directrices maestras de captación, consolidación y profesionalización.</p>
+        </div>
+        <div class="del-item">
+          <strong>Plan Campaña Matrícula 2027</strong>
+          <p>Estrategia publicitaria en Meta Ads, segmentación de cursos de alta demanda y funnel comercial.</p>
+        </div>
+        <div class="del-item">
+          <strong>Estudio de Mercado Chile 2026</strong>
+          <p>Benchmark de aranceles técnicos en Santiago, empleabilidad y oportunidades de posicionamiento.</p>
+        </div>
+        <div class="del-item">
+          <strong>Carta Gantt Interactiva en Línea</strong>
+          <p>Plataforma web dinámica con trazabilidad de fases, tareas e hitos de la consultoría.</p>
+        </div>
+        <div class="del-item">
+          <strong>Auditoría de Seguridad & Legal</strong>
+          <p>Matriz de riesgos, Acuerdo de Confidencialidad y Política de Privacidad Web formalizada.</p>
+        </div>
+        <div class="del-item">
+          <strong>7 Guías de Autoaprendizaje</strong>
+          <p>Manuales operativos para que el equipo interno administre WordPress, Meta, Kommo y Brevo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agenda Inmediata -->
+    <section>
+      <h2><span class="icon">📅</span> Agenda Crítica Inmediata</h2>
+      
+      <div class="alert-card alert-primary">
+        <div class="alert-icon">📱</div>
+        <div class="alert-body">
+          <h4>Reunión Presencial — Martes 22 de Septiembre (Sede Providencia)</h4>
+          <p>Objetivo: Destrabar en 30 minutos el control operativo de las plataformas. Se requiere tener en mesa:</p>
+          <ul>
+            <li>Teléfono WhatsApp Business Maipú (+56 9 9900 59968).</li>
+            <li>Teléfono con chip Kommo (+56 9 9789 20810).</li>
+            <li>Teléfono con chip Chatfuel (+56 9 9520 06799).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert-card alert-warning">
+        <div class="alert-icon">💳</div>
+        <div class="alert-body">
+          <h4>Decisiones Requeridas de la Dirección</h4>
+          <ul>
+            <li><strong>Medios de Pago Corporativos:</strong> Incorporar tarjeta débito/crédito empresa en Meta Ads y Make para no depender de terceros ni interrumpir campañas.</li>
+            <li><strong>Aprobación Presupuesto Matrículas 2027:</strong> Validar presupuesto de pauta para activar captación publicitaria el 1 de octubre.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--surface-border); color: var(--text-muted); font-size: 0.85rem;">
+      <p>Emitido por <strong>Cristian (Tecnología y Marketing Digital)</strong> para el <strong>Instituto Santa María (ISM)</strong></p>
+      <p style="margin-top: 0.3rem;">Santiago de Chile · Septiembre 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
