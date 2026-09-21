@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Gantt Interactiva — Instituto Santa María</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --accent-rose: #f43f5e;
+      --grid-line: rgba(255, 255, 255, 0.04);
+      --grid-weekend: rgba(255, 255, 255, 0.02);
+      --today-line: #ef4444;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.16);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --grid-line: rgba(0, 0, 0, 0.05);
+      --grid-weekend: rgba(0, 0, 0, 0.02);
+      --today-line: #dc2626;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 1.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+
+    .brand-info h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-info p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .controls-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--border-hover);
+      border-color: var(--text-muted);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    .filters-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .pill.active {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .pill:hover:not(.active) {
+      background: var(--border-hover);
+      color: var(--text-primary);
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 0.75rem 0.4rem 2rem;
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      width: 180px;
+      transition: all 0.2s ease;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      width: 240px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Main Layout */
+    .gantt-wrapper {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 145px);
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+
+    /* Left Sidebar: Task Tree */
+    .task-sidebar {
+      width: 380px;
+      min-width: 380px;
+      border-right: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    .sidebar-header {
+      height: 60px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      justify-content: space-between;
+      background: var(--bg-secondary);
+    }
+
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* Phase & Task Rows in Sidebar */
+    .phase-row {
+      padding: 0.65rem 1rem;
+      background: var(--bg-tertiary);
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 700;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .phase-row svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .phase-row.collapsed svg {
+      transform: rotate(-90deg);
+    }
+
+    .phase-badge {
+      margin-left: auto;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .task-item {
+      height: 48px;
+      padding: 0 1rem 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.82rem;
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+
+    .task-item:hover, .task-item.highlighted {
+      background: rgba(59, 130, 246, 0.08);
+    }
+
+    .task-item-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-done { background: var(--accent-emerald); }
+    .status-active { background: var(--accent-blue); box-shadow: 0 0 8px var(--accent-blue); }
+    .status-pending { background: var(--text-muted); }
+    .status-milestone { background: var(--accent-amber); transform: rotate(45deg); width: 7px; height: 7px; }
+
+    .assignee-chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.18rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Right: Timeline Grid */
+    .timeline-container {
+      flex: 1;
+      overflow: auto;
+      position: relative;
+      background: var(--bg-primary);
+    }
+
+    .timeline-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timeline-months {
+      height: 30px;
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .timeline-month {
+      border-right: 1px solid var(--border-color);
+      padding: 0 0.75rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-days {
+      height: 30px;
+      display: flex;
+    }
+
+    .timeline-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--grid-line);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      flex-shrink: 0;
+    }
+
+    .timeline-day.weekend {
+      background: var(--grid-weekend);
+    }
+
+    .timeline-day.today {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--today-line);
+      font-weight: 700;
+    }
+
+    /* Timeline Body */
+    .timeline-body {
+      position: relative;
+    }
+
+    .timeline-grid-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      pointer-events: none;
+    }
+
+    .grid-col {
+      border-right: 1px solid var(--grid-line);
+      flex-shrink: 0;
+      height: 100%;
+    }
+
+    .grid-col.weekend {
+      background: var(--grid-weekend);
+    }
+
+    .grid-col.today {
+      background: rgba(239, 68, 68, 0.03);
+    }
+
+    /* Today marker line */
+    .today-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--today-line);
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    .today-line::after {
+      content: 'HOY (16 Sep)';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: var(--today-line);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Gantt Bars */
+    .gantt-row {
+      height: 48px;
+      position: relative;
+      border-bottom: 1px solid var(--grid-line);
+      display: flex;
+      align-items: center;
+    }
+
+    .gantt-row.phase-row-placeholder {
+      height: 38px;
+      background: rgba(255, 255, 255, 0.015);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .gantt-bar {
+      position: absolute;
+      height: 28px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0 0.65rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 5;
+    }
+
+    .gantt-bar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    .gantt-bar-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 6px 0 0 6px;
+      pointer-events: none;
+    }
+
+    .gantt-bar-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    /* Phase themes for bars */
+    .bar-phase-1 {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      border: 1px solid #60a5fa;
+    }
+
+    .bar-phase-1-2 {
+      background: linear-gradient(90deg, #0d9488, #14b8a6);
+      border: 1px solid #5eead4;
+    }
+
+    .bar-phase-2 {
+      background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+      border: 1px solid #c4b5fd;
+    }
+
+    .bar-phase-3 {
+      background: linear-gradient(90deg, #e11d48, #f43f5e);
+      border: 1px solid #fda4af;
+    }
+
+    /* Milestone diamond */
+    .gantt-milestone {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      transform: rotate(45deg);
+      border-radius: 4px;
+      border: 2px solid #fef3c7;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+      z-index: 6;
+      transition: all 0.2s ease;
+    }
+
+    .gantt-milestone:hover {
+      transform: rotate(45deg) scale(1.15);
+      box-shadow: 0 0 18px rgba(245, 158, 11, 0.8);
+      z-index: 10;
+    }
+
+    /* Tooltip */
+    .gantt-tooltip {
+      position: fixed;
+      display: none;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-hover);
+      box-shadow: var(--shadow-lg);
+      padding: 0.9rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      z-index: 100;
+      pointer-events: none;
+      max-width: 320px;
+      backdrop-filter: blur(16px);
+    }
+
+    .tooltip-header {
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .tooltip-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .tooltip-meta strong {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .tooltip-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    /* KPI Summary Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 0.65rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .kpi-items {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .kpi-item strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .task-sidebar { width: 280px; min-width: 280px; }
+      .brand-info p { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-top">
+      <div class="brand">
+        <div class="brand-logo">ISM</div>
+        <div class="brand-info">
+          <h1>Carta Gantt — Plan de Despliegue Tecnológico y Marketing 2026</h1>
+          <p>Instituto Santa María • Providencia & Maipú • Admisión y Matrícula 2027</p>
+        </div>
+      </div>
+      <div class="controls-top">
+        <button class="btn" id="btn-scale-day" onclick="setScale('day')">Días</button>
+        <button class="btn btn-primary" id="btn-scale-week" onclick="setScale('week')">Semanas</button>
+        <button class="btn" id="btn-scale-month" onclick="setScale('month')">Meses</button>
+        <button class="btn" onclick="scrollToToday()">📍 Ir a Hoy</button>
+        <button class="btn" onclick="toggleTheme()" id="theme-btn">☀️ / 🌙</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir / PDF</button>
+      </div>
+    </div>
+
+    <div class="filters-bar">
+      <div class="filter-group">
+        <span class="filter-label">Filtro Fase:</span>
+        <span class="pill active" onclick="filterPhase('all', this)">Todas</span>
+        <span class="pill" onclick="filterPhase('fase1', this)">Fase 1: Diagnóstico</span>
+        <span class="pill" onclick="filterPhase('fase12', this)">Fase 1.2: Optimización</span>
+        <span class="pill" onclick="filterPhase('fase2', this)">Fase 2: Pauta Oct</span>
+        <span class="pill" onclick="filterPhase('fase3', this)">Fase 3: Admisión Nov</span>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label">Responsable:</span>
+        <span class="pill active" onclick="filterPerson('all', this)">Todos</span>
+        <span class="pill" onclick="filterPerson('Cristian', this)">Cristian</span>
+        <span class="pill" onclick="filterPerson('Mary Luz', this)">Mary Luz</span>
+        <span class="pill" onclick="filterPerson('Antonia', this)">Antonia</span>
+        <span class="pill" onclick="filterPerson('Fran', this)">Fran / Redes</span>
+      </div>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="task-search" placeholder="Buscar tarea..." oninput="searchTasks(this.value)">
+      </div>
+    </div>
+  </header>
+
+  <div class="gantt-wrapper">
+    <!-- Left Task List -->
+    <div class="task-sidebar">
+      <div class="sidebar-header">
+        <span>Fase / Tarea</span>
+        <span>Responsable</span>
+      </div>
+      <div class="sidebar-content" id="sidebar-list">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
+
+    <!-- Right Timeline Grid -->
+    <div class="timeline-container" id="timeline-container">
+      <div class="timeline-header" id="timeline-header">
+        <div class="timeline-months" id="timeline-months"></div>
+        <div class="timeline-days" id="timeline-days"></div>
+      </div>
+      <div class="timeline-body" id="timeline-body">
+        <div class="timeline-grid-lines" id="grid-lines"></div>
+        <div class="today-line" id="today-marker"></div>
+        <div id="gantt-bars-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gantt-tooltip" id="tooltip"></div>
+
+  <footer>
+    <div class="kpi-items">
+      <div class="kpi-item">Período: <strong>19 Ago – 30 Nov 2026</strong></div>
+      <div class="kpi-item">Duración: <strong>104 Días</strong></div>
+      <div class="kpi-item">Progreso Global: <strong id="global-progress">38%</strong></div>
+      <div class="kpi-item">Hitos Clave: <strong>5 Hitos</strong></div>
+    </div>
+    <div>Instituto Santa María • Coordinación de Tecnología & Marketing</div>
+  </footer>
+
+  <script>
+    // Project Data Definition
+    const PROJECT_START = new Date("2026-08-17T00:00:00");
+    const PROJECT_END = new Date("2026-12-05T00:00:00");
+    const TODAY = new Date("2026-09-16T00:00:00");
+
+    const GANTT_DATA = [
+      {
+        id: "p1",
+        isPhase: true,
+        phaseKey: "fase1",
+        title: "FASE 1: DIAGNÓSTICO Y ACCESO (19 AGO - 11 SEP)",
+        badge: "100% AUDITADO",
+        items: [
+          { id: "t1", title: "Reunión inicial con Mary Luz (prioridades y alcance)", start: "2026-08-19", end: "2026-08-20", person: "Cristian", progress: 100, status: "done", deliverable: "Acta de reunión y prioridades" },
+          { id: "t2", title: "Recepción de accesos y credenciales maestras", start: "2026-08-20", end: "2026-08-28", person: "Cristian", progress: 100, status: "done", deliverable: "Ficha de credenciales seguras" },
+          { id: "t3", title: "Auditoría Kommo (bot) + Make (escenarios activos)", start: "2026-08-24", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Diagnóstico técnico de flujos" },
+          { id: "t4", title: "Auditoría Meta Business Suite y campañas activas", start: "2026-08-25", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Reporte de campañas Meta" },
+          { id: "t5", title: "Auditoría Brevo y validación base de contactos", start: "2026-08-26", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Reporte email marketing" },
+          { id: "t6", title: "Diagnóstico Chatfuel y flujos WhatsApp", start: "2026-08-27", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Diagnóstico bot WhatsApp" },
+          { id: "m1", title: "HITO 1: Entrega Informe Diagnóstico Consolidado", start: "2026-09-04", end: "2026-09-04", person: "Cristian", progress: 100, status: "milestone", isMilestone: true, deliverable: "Informe Diagnóstico Completo" },
+          { id: "t7", title: "Securización: Cambio y documentación de contraseñas", start: "2026-09-04", end: "2026-09-11", person: "Cristian", progress: 85, status: "active", deliverable: "Ficha de accesos blindada" },
+          { id: "t8", title: "Roadmap Web: Coordinación con Antonia (WordPress)", start: "2026-09-04", end: "2026-09-11", person: "Antonia", progress: 75, status: "active", deliverable: "Roadmap Antonia Web" },
+          { id: "t9", title: "Alineación de contenidos en redes (Fran / Profes)", start: "2026-09-04", end: "2026-09-11", person: "Fran", progress: 80, status: "active", deliverable: "Protocolo de contenido" }
+        ]
+      },
+      {
+        id: "p12",
+        isPhase: true,
+        phaseKey: "fase12",
+        title: "FASE 1.2: OPTIMIZACIÓN Y CAMPAÑA (14 SEP - 30 SEP)",
+        badge: "EN PROGRESO",
+        items: [
+          { id: "t10", title: "Ajustes en bot Kommo + escenarios de Make", start: "2026-09-14", end: "2026-09-18", person: "Cristian", progress: 40, status: "active", deliverable: "Bot y webhooks activos" },
+          { id: "t11", title: "Pausa Fiestas Patrias (Receso Operacional)", start: "2026-09-17", end: "2026-09-18", person: "Mary Luz", progress: 0, status: "pending", deliverable: "Feriado legal" },
+          { id: "t12", title: "Borrador de Campaña Matrícula 2027", start: "2026-09-21", end: "2026-09-25", person: "Cristian", progress: 25, status: "pending", deliverable: "Estrategia Campaña 2027" },
+          { id: "m2", title: "HITO 2: Informe Final Fase 1 y Presentación", start: "2026-09-30", end: "2026-09-30", person: "Cristian", progress: 0, status: "milestone", isMilestone: true, deliverable: "Cierre Fase 1 a Dirección" }
+        ]
+      },
+      {
+        id: "p2",
+        isPhase: true,
+        phaseKey: "fase2",
+        title: "FASE 2: ACTIVACIÓN Y PAUTA DIGITAL (01 OCT - 31 OCT)",
+        badge: "OCTUBRE",
+        items: [
+          { id: "t13", title: "Lanzamiento de campaña digital (Meta Ads & Google Ads)", start: "2026-10-01", end: "2026-10-04", person: "Cristian", progress: 0, status: "pending", deliverable: "Campañas en vivo" },
+          { id: "t14", title: "Optimización continua y seguimiento de leads", start: "2026-10-05", end: "2026-10-31", person: "Cristian", progress: 0, status: "pending", deliverable: "Reporte semanal de conversión" },
+          { id: "t15", title: "Actualización de sitio web para matrícula con Antonia", start: "2026-10-12", end: "2026-10-18", person: "Antonia", progress: 0, status: "pending", deliverable: "Landing de Admisión lista" },
+          { id: "t16", title: "Campaña de Email Marketing (Brevo) + WhatsApp", start: "2026-10-19", end: "2026-10-25", person: "Cristian", progress: 0, status: "pending", deliverable: "Secuencias de emails enviadas" },
+          { id: "t17", title: "Preparación final de landings, bots y formularios", start: "2026-10-26", end: "2026-10-31", person: "Cristian", progress: 0, status: "pending", deliverable: "Stack verificado para noviembre" },
+          { id: "m3", title: "HITO 3: Ecosistema Listo para Admisión 2027", start: "2026-10-31", end: "2026-10-31", person: "Mary Luz", progress: 0, status: "milestone", isMilestone: true, deliverable: "Validación General de Sistemas" }
+        ]
+      },
+      {
+        id: "p3",
+        isPhase: true,
+        phaseKey: "fase3",
+        title: "FASE 3: ADMISIÓN Y MATRÍCULA 2027 (01 NOV - 30 NOV)",
+        badge: "NOVIEMBRE",
+        items: [
+          { id: "m4", title: "HITO 4: LANZAMIENTO OFICIAL ADMISIÓN 2027", start: "2026-11-01", end: "2026-11-01", person: "Mary Luz", progress: 0, status: "milestone", isMilestone: true, deliverable: "Apertura oficial matrículas" },
+          { id: "t18", title: "Captación intensiva y pauta masiva", start: "2026-11-01", end: "2026-11-15", person: "Cristian", progress: 0, status: "pending", deliverable: "Flujo masivo de prospectos" },
+          { id: "t19", title: "Seguimiento diario de prospectos en CRM Kommo", start: "2026-11-08", end: "2026-11-21", person: "Cristian", progress: 0, status: "pending", deliverable: "Reporte diario de prospectos" },
+          { id: "t20", title: "Cierre de primera ronda de admisión", start: "2026-11-15", end: "2026-11-21", person: "Mary Luz", progress: 0, status: "pending", deliverable: "Métricas de matriculados" },
+          { id: "t21", title: "Consolidación de métricas, informe final y transición", start: "2026-11-22", end: "2026-11-30", person: "Cristian", progress: 0, status: "pending", deliverable: "Informe Final y Traspaso" },
+          { id: "m5", title: "HITO 5: Cierre Contractual y Traspaso Consolidado", start: "2026-11-30", end: "2026-11-30", person: "Cristian", progress: 0, status: "milestone", isMilestone: true, deliverable: "Traspaso de Control Total" }
+        ]
+      }
+    ];
+
+    let currentScale = 'week'; // 'day' | 'week' | 'month'
+    let dayWidth = 36;
+    let filterPhaseVal = 'all';
+    let filterPersonVal = 'all';
+    let searchQuery = '';
+
+    const MONTH_NAMES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+    const DAY_NAMES = ["D", "L", "M", "M", "J", "V", "S"];
+
+    function getDaysDiff(d1, d2) {
+      const diffTime = d2.getTime() - d1.getTime();
+      return Math.round(diffTime / (1000 * 3600 * 24));
+    }
+
+    function initGantt() {
+      if (currentScale === 'day') dayWidth = 44;
+      if (currentScale === 'week') dayWidth = 28;
+      if (currentScale === 'month') dayWidth = 14;
+
+      renderHeader();
+      renderBody();
+      updateTodayLine();
+    }
+
+    function setScale(scale) {
+      currentScale = scale;
+      document.getElementById('btn-scale-day').className = scale === 'day' ? 'btn btn-primary' : 'btn';
+      document.getElementById('btn-scale-week').className = scale === 'week' ? 'btn btn-primary' : 'btn';
+      document.getElementById('btn-scale-month').className = scale === 'month' ? 'btn btn-primary' : 'btn';
+      initGantt();
+    }
+
+    function renderHeader() {
+      const monthsEl = document.getElementById('timeline-months');
+      const daysEl = document.getElementById('timeline-days');
+      monthsEl.innerHTML = '';
+      daysEl.innerHTML = '';
+
+      const totalDays = getDaysDiff(PROJECT_START, PROJECT_END);
+      let currentMonth = -1;
+      let monthStartDay = 0;
+      let monthWidth = 0;
+      let lastMonthName = '';
+
+      for (let i = 0; i <= totalDays; i++) {
+        const d = new Date(PROJECT_START.getTime() + i * 86400000);
+        const m = d.getMonth();
+        const dayOfMonth = d.getDate();
+        const dayOfWeek = d.getDay();
+        const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+        const isToday = (d.toDateString() === TODAY.toDateString());
+
+        if (m !== currentMonth) {
+          if (currentMonth !== -1) {
+            const mEl = document.createElement('div');
+            mEl.className = 'timeline-month';
+            mEl.style.width = (monthWidth) + 'px';
+            mEl.textContent = lastMonthName + ' 2026';
+            monthsEl.appendChild(mEl);
+          }
+          currentMonth = m;
+          lastMonthName = MONTH_NAMES[m];
+          monthWidth = 0;
+        }
+        monthWidth += dayWidth;
+
+        // Day cell
+        const dayEl = document.createElement('div');
+        dayEl.className = 'timeline-day' + (isWeekend ? ' weekend' : '') + (isToday ? ' today' : '');
+        dayEl.style.width = dayWidth + 'px';
+        dayEl.innerHTML = `<span>${dayOfMonth}</span><span style="font-size:0.6rem;opacity:0.6">${DAY_NAMES[dayOfWeek]}</span>`;
+        daysEl.appendChild(dayEl);
+      }
+
+      // Final month
+      if (monthWidth > 0) {
+        const mEl = document.createElement('div');
+        mEl.className = 'timeline-month';
+        mEl.style.width = monthWidth + 'px';
+        mEl.textContent = lastMonthName + ' 2026';
+        monthsEl.appendChild(mEl);
+      }
+    }
+
+    function renderBody() {
+      const sidebarEl = document.getElementById('sidebar-list');
+      const barsContainer = document.getElementById('gantt-bars-container');
+      const gridLinesEl = document.getElementById('grid-lines');
+
+      sidebarEl.innerHTML = '';
+      barsContainer.innerHTML = '';
+      gridLinesEl.innerHTML = '';
+
+      const totalDays = getDaysDiff(PROJECT_START, PROJECT_END);
+
+      // Grid background columns
+      for (let i = 0; i <= totalDays; i++) {
+        const d = new Date(PROJECT_START.getTime() + i * 86400000);
+        const isWeekend = (d.getDay() === 0 || d.getDay() === 6);
+        const isToday = (d.toDateString() === TODAY.toDateString());
+        const col = document.createElement('div');
+        col.className = 'grid-col' + (isWeekend ? ' weekend' : '') + (isToday ? ' today' : '');
+        col.style.width = dayWidth + 'px';
+        gridLinesEl.appendChild(col);
+      }
+
+      // Render Rows
+      GANTT_DATA.forEach((phase) => {
+        if (filterPhaseVal !== 'all' && phase.phaseKey !== filterPhaseVal) return;
+
+        // Filter items
+        const visibleItems = phase.items.filter(item => {
+          if (filterPersonVal !== 'all' && !item.person.includes(filterPersonVal)) return false;
+          if (searchQuery && !item.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+          return true;
+        });
+
+        if (visibleItems.length === 0 && (searchQuery || filterPersonVal !== 'all')) return;
+
+        // Phase header in sidebar
+        const phaseEl = document.createElement('div');
+        phaseEl.className = 'phase-row';
+        phaseEl.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          <span>${phase.title}</span>
+          <span class="phase-badge">${phase.badge}</span>
+        `;
+        sidebarEl.appendChild(phaseEl);
+
+        // Phase placeholder row in timeline
+        const phaseRow = document.createElement('div');
+        phaseRow.className = 'gantt-row phase-row-placeholder';
+        phaseRow.style.width = (totalDays * dayWidth) + 'px';
+        barsContainer.appendChild(phaseRow);
+
+        // Task rows
+        visibleItems.forEach(item => {
+          const rowEl = document.createElement('div');
+          rowEl.className = 'task-item';
+          rowEl.id = 'side-' + item.id;
+          rowEl.innerHTML = `
+            <div class="task-item-title">
+              <span class="status-dot status-${item.status}"></span>
+              <span title="${item.title}">${item.title}</span>
+            </div>
+            <span class="assignee-chip">${item.person}</span>
+          `;
+          sidebarEl.appendChild(rowEl);
+
+          // Timeline Bar row
+          const barRow = document.createElement('div');
+          barRow.className = 'gantt-row';
+          barRow.id = 'row-' + item.id;
+          barRow.style.width = (totalDays * dayWidth) + 'px';
+
+          const startDate = new Date(item.start + "T00:00:00");
+          const endDate = new Date(item.end + "T23:59:59");
+          const startDays = getDaysDiff(PROJECT_START, startDate);
+          const durationDays = Math.max(1, getDaysDiff(startDate, endDate) + 1);
+
+          const leftPos = startDays * dayWidth;
+          const barWidth = durationDays * dayWidth;
+
+          if (item.isMilestone) {
+            const ms = document.createElement('div');
+            ms.className = 'gantt-milestone';
+            ms.style.left = (leftPos + (dayWidth / 2) - 12) + 'px';
+            ms.style.top = '12px';
+            ms.onmouseenter = (e) => showTooltip(e, item, durationDays);
+            ms.onmouseleave = hideTooltip;
+            barRow.appendChild(ms);
+          } else {
+            const bar = document.createElement('div');
+            const phaseClass = phase.phaseKey === 'fase1' ? 'bar-phase-1' :
+                               phase.phaseKey === 'fase12' ? 'bar-phase-1-2' :
+                               phase.phaseKey === 'fase2' ? 'bar-phase-2' : 'bar-phase-3';
+
+            bar.className = `gantt-bar ${phaseClass}`;
+            bar.style.left = leftPos + 'px';
+            bar.style.width = Math.max(28, barWidth - 4) + 'px';
+
+            if (item.progress > 0) {
+              const prog = document.createElement('div');
+              prog.className = 'gantt-bar-progress';
+              prog.style.width = item.progress + '%';
+              bar.appendChild(prog);
+            }
+
+            const content = document.createElement('div');
+            content.className = 'gantt-bar-content';
+            content.innerHTML = `<span>${item.title}</span> <span style="opacity:0.8;font-size:0.65rem">(${durationDays}d)</span>`;
+            bar.appendChild(content);
+
+            bar.onmouseenter = (e) => showTooltip(e, item, durationDays);
+            bar.onmouseleave = hideTooltip;
+
+            barRow.appendChild(bar);
+          }
+
+          barsContainer.appendChild(barRow);
+        });
+      });
+    }
+
+    function updateTodayLine() {
+      const todayMarker = document.getElementById('today-marker');
+      const daysSinceStart = getDaysDiff(PROJECT_START, TODAY);
+      const leftPos = (daysSinceStart * dayWidth) + (dayWidth / 2);
+      todayMarker.style.left = leftPos + 'px';
+    }
+
+    function scrollToToday() {
+      const daysSinceStart = getDaysDiff(PROJECT_START, TODAY);
+      const container = document.getElementById('timeline-container');
+      const targetPos = (daysSinceStart * dayWidth) - (container.clientWidth / 2);
+      container.scrollTo({ left: Math.max(0, targetPos), behavior: 'smooth' });
+    }
+
+    function showTooltip(e, item, durationDays) {
+      const tt = document.getElementById('tooltip');
+      tt.style.display = 'block';
+      tt.style.left = (e.clientX + 16) + 'px';
+      tt.style.top = (e.clientY - 20) + 'px';
+
+      const statusLabels = {
+        done: '✅ Completado (100%)',
+        active: `🚀 En Curso (${item.progress}%)`,
+        pending: '⏳ Pendiente',
+        milestone: '⭐ Hito Clave'
+      };
+
+      tt.innerHTML = `
+        <div class="tooltip-header">${item.title}</div>
+        <div class="tooltip-meta">
+          <strong>Período:</strong> <span>${item.start} al ${item.end} (${durationDays} días)</span>
+          <strong>Responsable:</strong> <span>${item.person}</span>
+          <strong>Estado:</strong> <span>${statusLabels[item.status] || item.status}</span>
+          <strong>Entregable:</strong> <span>${item.deliverable || 'Documento / Hito'}</span>
+        </div>
+      `;
+    }
+
+    function hideTooltip() {
+      document.getElementById('tooltip').style.display = 'none';
+    }
+
+    function filterPhase(phase, el) {
+      filterPhaseVal = phase;
+      document.querySelectorAll('.filters-bar .filter-group:nth-child(1) .pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      renderBody();
+    }
+
+    function filterPerson(person, el) {
+      filterPersonVal = person;
+      document.querySelectorAll('.filters-bar .filter-group:nth-child(2) .pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      renderBody();
+    }
+
+    function searchTasks(val) {
+      searchQuery = val;
+      renderBody();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      initGantt();
+      setTimeout(scrollToToday, 250);
+    });
+  </script>
+</body>
+</html>

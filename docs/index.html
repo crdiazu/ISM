@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Santa María — Portal Ejecutivo de Marketing y Tecnología</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --surface: #131B2E;
+      --surface-hover: #1C2742;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --primary: #3B82F6;
+      --primary-gradient: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+      --accent-cyan: #06B6D4;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-violet: #8B5CF6;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      --shadow-hover: 0 20px 40px -15px rgba(59, 130, 246, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93C5FD;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .badge-pill .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3B82F6;
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FFFFFF 20%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* KPI Bar */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+    }
+
+    .kpi-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 0.25rem;
+    }
+
+    .kpi-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title span.dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--primary);
+    }
+
+    /* Tool Cards */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, transparent);
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover {
+      background: var(--surface-hover);
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .tool-card.primary:hover::before {
+      background: linear-gradient(90deg, #3B82F6, #06B6D4);
+    }
+
+    .tool-card.emerald:hover::before {
+      background: linear-gradient(90deg, #10B981, #06B6D4);
+    }
+
+    .tool-card.violet:hover::before {
+      background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .tool-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-live {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .tag-interactive {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .tool-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #FFF;
+    }
+
+    .tool-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #60A5FA;
+      transition: gap 0.2s ease;
+    }
+
+    .tool-card:hover .tool-cta {
+      gap: 0.75rem;
+      color: #93C5FD;
+    }
+
+    /* Strategic Documentation List */
+    .docs-panel {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .docs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .doc-item {
+      padding: 1.1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .doc-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(4px);
+    }
+
+    .doc-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #F1F5F9;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .doc-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #60A5FA;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge-pill">
+        <span class="pulse"></span>
+        Entregables de Consultoría · 2026
+      </div>
+      <h1>Instituto Santa María (ISM)</h1>
+      <p class="lead">Portal Ejecutivo de Estrategia de Marketing, Arquitectura de Sistemas y Transferencia de Conocimiento Tecnológico.</p>
+    </header>
+
+    <!-- KPI Summary Bar -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <span class="kpi-value">100%</span>
+        <span class="kpi-label">Ecosistema Mapeado</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-value">3 Fases</span>
+        <span class="kpi-label">Cronograma Operativo</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-value">5 Hitos</span>
+        <span class="kpi-label">Entregables Clave</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-value">Q4 2026</span>
+        <span class="kpi-label">Horizonte de Implementación</span>
+      </div>
+    </div>
+
+    <!-- Interactive Dashboards -->
+    <div class="section-title">
+      <span class="dot"></span>
+      Herramientas y Entregables Interactivos
+    </div>
+
+    <div class="tools-grid">
+      <!-- Carta Gantt Interactiva -->
+      <a href="carta-gantt-interactiva.html" class="tool-card primary">
+        <div>
+          <div class="tool-header">
+            <div class="tool-icon">📊</div>
+            <span class="tag tag-live">Interactivo</span>
+          </div>
+          <h3>Carta Gantt Dinámica</h3>
+          <p>Visualizador interactivo de fases, tareas por área (Tecnología, Marketing, Operaciones), hitos críticos y avance temporal de la consultoría.</p>
+        </div>
+        <div class="tool-cta">
+          Explorar Carta Gantt &rarr;
+        </div>
+      </a>
+
+      <!-- Arquitectura de Sistemas -->
+      <a href="archify-stack-ism.html" class="tool-card emerald">
+        <div>
+          <div class="tool-header">
+            <div class="tool-icon">🏛️</div>
+            <span class="tag tag-interactive">Archify SVG</span>
+          </div>
+          <h3>Arquitectura del Stack Tecnológico</h3>
+          <p>Diagrama interactivo de plataformas integradas: WordPress, Meta Business Suite, Kommo CRM, Brevo, Make y WhatsApp con trazado dinámico.</p>
+        </div>
+        <div class="tool-cta">
+          Ver Diagrama de Arquitectura &rarr;
+        </div>
+      </a>
+
+      <!-- Workflow de Trabajo -->
+      <a href="archify-cronograma-ism.html" class="tool-card violet">
+        <div>
+          <div class="tool-header">
+            <div class="tool-icon">🔄</div>
+            <span class="tag tag-interactive">Workflow</span>
+          </div>
+          <h3>Cronograma de Transferencia y Procesos</h3>
+          <p>Flujo interactivo de procesos ordenado por carriles de trabajo (Lanes), detallando recepciones, auditorías y campañas institucionales.</p>
+        </div>
+        <div class="tool-cta">
+          Ver Flujo de Cronograma &rarr;
+        </div>
+      </a>
+    </div>
+
+    <!-- Strategic Documents Index -->
+    <div class="section-title">
+      <span class="dot"></span>
+      Documentación y Planes Estratégicos
+    </div>
+
+    <div class="docs-panel">
+      <div class="docs-list">
+        <div class="doc-item">
+          <div class="doc-title">📋 Plan Estratégico ISM (Q4 2026)</div>
+          <div class="doc-desc">Directrices maestras de consolidación digital, metas comerciales y transferencia de conocimiento.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-title">🎯 Plan Campaña Matrícula 2027</div>
+          <div class="doc-desc">Estrategia integral de captación, pauta publicitaria en Meta Ads, segmentación y metas de inscripción.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-title">📈 Estudio de Mercado Chile 2026</div>
+          <div class="doc-desc">Análisis de empleabilidad técnica, demanda de cursos de oficios, benchmarking y pricing en Santiago.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-title">🔒 Protocolo de Seguridad & Políticas</div>
+          <div class="doc-desc">Auditoría preventiva, política de privacidad del sitio web y acuerdos de confidencialidad institucional.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-title">🗺️ Mapa de Flujos de Comunicación</div>
+          <div class="doc-desc">Rutas de atención al postulante, derivación por WhatsApp, chatbots y registro automatizado en CRM.</div>
+        </div>
+        <div class="doc-item">
+          <div class="doc-title">⚙️ Guías Operativas del Stack</div>
+          <div class="doc-desc">Manuales paso a paso para la operación autónoma de Brevo, Kommo, Make, Meta Suite y WordPress.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Desarrollado para <strong>Instituto Santa María (ISM)</strong> · Centro de Educación Politécnica y Compañía Limitada</p>
+      <p style="margin-top: 0.5rem; color: #64748B;">Asesoría en Tecnología, Marketing Digital e Infraestructura de Comunicación</p>
+    </footer>
+  </div>
+</body>
+</html>

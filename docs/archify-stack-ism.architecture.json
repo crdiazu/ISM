@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Ecosistema Tecnológico — Instituto Santa María",
+    "output": "ISM/docs/archify-stack-ism.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "captacion",
+        "label": "Captación y Canales",
+        "focus": ["users", "ig_meta", "wordpress", "chatfuel"],
+        "note": "Entrada de tráfico desde redes y web hacia canales conversacionales."
+      },
+      {
+        "id": "automatizacion",
+        "label": "Automatización y CRM",
+        "focus": ["chatfuel", "make", "kommo", "brevo"],
+        "note": "Sincronización de prospectos entre el bot, CRM y campañas de email."
+      },
+      {
+        "id": "conversion",
+        "label": "Conversión y Gestión",
+        "focus": ["kommo", "brevo", "admin"],
+        "note": "Seguimiento diario del equipo de ventas y cierre de matrículas."
+      }
+    ]
+  },
+  "components": [
+    { "id": "users", "type": "external", "label": "Aspirantes", "sublabel": "Tráfico y Consultas", "pos": [40, 270], "size": [130, 60] },
+    { "id": "ig_meta", "type": "external", "brand": "meta", "label": "Meta Ads & IG", "sublabel": "Providencia y Maipú", "pos": [240, 150], "size": [140, 60] },
+    { "id": "wordpress", "type": "frontend", "brand": "wordpress", "label": "Sitio Web ISM", "sublabel": "ismchile.cl", "pos": [240, 390], "size": [140, 60] },
+    { "id": "chatfuel", "type": "messagebus", "label": "Chatfuel / WA", "sublabel": "Chatbot Web & WhatsApp", "pos": [460, 270], "size": [150, 60], "tag": "Bot de atención" },
+    { "id": "kommo", "type": "backend", "label": "Kommo CRM", "sublabel": "Gestión de Leads", "pos": [690, 270], "size": [140, 60], "tag": "Pipeline Admisión" },
+    { "id": "make", "type": "messagebus", "label": "Make", "sublabel": "Integromat Webhooks", "pos": [690, 130], "size": [140, 60] },
+    { "id": "brevo", "type": "backend", "label": "Brevo CRM", "sublabel": "Email Marketing", "pos": [690, 410], "size": [140, 60] },
+    { "id": "admin", "type": "security", "label": "Equipo ISM", "sublabel": "Mary Luz / Ventas", "pos": [910, 270], "size": [130, 60], "tag": "Cierre Matrícula" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Ecosistema Digital Instituto Santa María", "wraps": ["ig_meta", "wordpress", "chatfuel", "kommo", "make", "brevo"] },
+    { "kind": "security-group", "label": "Núcleo de Datos y Automatización", "wraps": ["kommo", "make", "brevo"] }
+  ],
+  "connections": [
+    { "id": "c-users-meta", "from": "users", "to": "ig_meta", "label": "campañas / IG", "variant": "emphasis" },
+    { "id": "c-users-web", "from": "users", "to": "wordpress", "label": "visitas web", "variant": "emphasis" },
+    { "id": "c-meta-chatfuel", "from": "ig_meta", "to": "chatfuel", "label": "inbox DM", "fromSide": "right", "toSide": "top" },
+    { "id": "c-web-chatfuel", "from": "wordpress", "to": "chatfuel", "label": "widget web", "fromSide": "right", "toSide": "bottom" },
+    { "id": "c-chatfuel-kommo", "from": "chatfuel", "to": "kommo", "variant": "emphasis" },
+    { "id": "c-kommo-make", "from": "kommo", "to": "make", "label": "webhook", "fromSide": "top", "toSide": "bottom", "labelDy": -20 },
+    { "id": "c-kommo-brevo", "from": "kommo", "to": "brevo", "variant": "default", "fromSide": "bottom", "toSide": "top" },
+    { "id": "c-kommo-admin", "from": "kommo", "to": "admin", "label": "seguimiento", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Captación Multicanal",
+      "items": [
+        "Tráfico derivado desde Meta Ads, Instagram y el portal web",
+        "Chatfuel centraliza consultas iniciales por web y WhatsApp"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Automatización & CRM",
+      "items": [
+        "Kommo organiza a los prospectos en el embudo de Admisión 2027",
+        "Make sincroniza eventos y nutre bases en Brevo de forma automática"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Conversión y Cierre",
+      "items": [
+        "El equipo directivo y docente monitorea los avances en tiempo real",
+        "Trazabilidad completa desde el primer clic hasta la matrícula final"
+      ]
+    }
+  ]
+}

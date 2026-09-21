@@ -1,0 +1,43 @@
+# ========================================================
+# Archivos Sensibles y Privados (Seguridad & Confidencialidad)
+# ========================================================
+# Bóvedas de contraseñas y accesos en texto plano
+*Registro de Claves*
+*Registro de Claves y Accesos*
+*Traspaso de acceso*
+Sin título*
+
+# Documentos personales, tributarios (SII) y ofimática
+*.pdf
+bhe_*
+*.docx
+*.xlsx
+*.pptx
+
+# Archivos pesados y multimedia local
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+*.rar
+
+# Secretos y variables de entorno
+.env
+.env.*
+*.key
+*.pem
+
+# Metadatos de Obsidian y asistentes de IA
+.obsidian/
+.agents/
+.claude/
+.copilot/
+.opencode/
+
+# Archivos del sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

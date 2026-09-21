@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Cronograma de Despliegue y Campaña — Instituto Santa María",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "fase-1",
+        "label": "Fase 1: Diagnóstico y Control",
+        "focus": ["kickoff", "accesos", "auditoria", "canales_diag", "aprobacion"],
+        "note": "Auditoría integral del stack, securización de accesos y alineación con Mary Luz."
+      },
+      {
+        "id": "fase-2",
+        "label": "Fase 2: Optimización y Pauta",
+        "focus": ["aprobacion", "bots_make", "pauta_ads", "landing_conv"],
+        "note": "Ajuste de bots en Kommo y Make, encendido de pauta en Meta Ads y landing web."
+      },
+      {
+        "id": "fase-3",
+        "label": "Fase 3: Admisión y Matrícula 2027",
+        "focus": ["apertura", "crm_leads", "matriculas", "informe_final"],
+        "note": "Lanzamiento oficial de admisión, gestión intensiva de prospectos y cierre."
+      }
+    ],
+    "output": "ISM/docs/archify-cronograma-ism.html"
+  },
+  "lanes": [
+    { "id": "direccion", "label": "Dirección General" },
+    { "id": "marketing", "label": "Tecnología & Marketing" },
+    { "id": "canales", "label": "Canales Digitales (Web / IG)" },
+    { "id": "admision", "label": "Admisión & Matrículas" }
+  ],
+  "phases": [
+    { "id": "fase1", "label": "Fase 1: Diagnóstico (Ago - Sep)", "fromCol": 0, "toCol": 1 },
+    { "id": "fase2", "label": "Fase 2: Optimización & Pauta (Sep - Oct)", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "fase3", "label": "Fase 3: Admisión 2027 (Nov)", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "grp_control", "label": "Auditoría y Accesos", "lane": "marketing", "fromCol": 0, "toCol": 1, "variant": "emphasis" },
+    { "id": "grp_campana", "label": "Preparación Campaña", "lane": "marketing", "fromCol": 2, "toCol": 3, "variant": "security" },
+    { "id": "grp_matricula", "label": "Operación Matrícula", "lane": "admision", "fromCol": 4, "toCol": 5, "variant": "emphasis" }
+  ],
+  "mainPath": ["kickoff", "accesos", "auditoria", "aprobacion", "bots_make", "pauta_ads", "apertura", "crm_leads", "matriculas", "informe_final"],
+  "nodes": [
+    { "id": "kickoff", "lane": "direccion", "col": 0, "type": "frontend", "label": "Kickoff ISM", "sublabel": "definición prioridades", "tag": "19 Ago", "width": 132 },
+    { "id": "accesos", "lane": "marketing", "col": 0, "type": "security", "label": "Recepción Accesos", "sublabel": "claves maestras", "width": 132 },
+    { "id": "auditoria", "lane": "marketing", "col": 1, "type": "backend", "label": "Auditoría Stack", "sublabel": "Kommo, Make, Brevo", "tag": "diagnóstico", "width": 132 },
+    { "id": "canales_diag", "lane": "canales", "col": 1, "type": "cloud", "label": "Alineación Canales", "sublabel": "WordPress & IG", "width": 132 },
+    { "id": "aprobacion", "lane": "direccion", "col": 2, "type": "security", "label": "Aprobación Fase 1", "sublabel": "informe Mary Luz", "tag": "04 Sep", "width": 132 },
+    { "id": "bots_make", "lane": "marketing", "col": 2, "type": "backend", "label": "Ajuste Bots & Make", "sublabel": "flujos reparados", "width": 132 },
+    { "id": "pauta_ads", "lane": "marketing", "col": 3, "type": "frontend", "label": "Pauta Digital", "sublabel": "Meta Ads & Brevo", "tag": "01 Oct", "width": 132 },
+    { "id": "landing_conv", "lane": "canales", "col": 3, "type": "cloud", "label": "Landing Matrícula", "sublabel": "captura prospectos", "width": 132 },
+    { "id": "apertura", "lane": "direccion", "col": 4, "type": "frontend", "label": "Apertura Admisión", "sublabel": "lanzamiento 2027", "tag": "01 Nov", "width": 132 },
+    { "id": "crm_leads", "lane": "admision", "col": 4, "type": "backend", "label": "Seguimiento CRM", "sublabel": "leads diarios Kommo", "width": 132 },
+    { "id": "matriculas", "lane": "admision", "col": 5, "type": "backend", "label": "Matrículas 2027", "sublabel": "cierre primera ronda", "width": 132 },
+    { "id": "informe_final", "lane": "direccion", "col": 5, "type": "frontend", "label": "Informe Final", "sublabel": "traspaso y control", "tag": "30 Nov", "width": 132 }
+  ],
+  "edges": [
+    { "id": "e-kickoff-accesos", "from": "kickoff", "to": "accesos", "variant": "emphasis" },
+    { "id": "e-accesos-auditoria", "from": "accesos", "to": "auditoria", "variant": "default" },
+    { "id": "e-auditoria-canales", "from": "auditoria", "to": "canales_diag", "label": "coordinar", "variant": "dashed" },
+    { "id": "e-auditoria-aprobacion", "from": "auditoria", "to": "aprobacion", "label": "informe", "variant": "emphasis" },
+    { "id": "e-aprobacion-bots", "from": "aprobacion", "to": "bots_make", "label": "aprobado", "variant": "emphasis" },
+    { "id": "e-canales-landing", "from": "canales_diag", "to": "landing_conv", "label": "web 2027", "variant": "dashed" },
+    { "id": "e-bots-pauta", "from": "bots_make", "to": "pauta_ads", "variant": "default" },
+    { "id": "e-pauta-apertura", "from": "pauta_ads", "to": "apertura", "label": "calentamiento", "variant": "emphasis" },
+    { "id": "e-landing-leads", "from": "landing_conv", "to": "crm_leads", "label": "conversión", "variant": "dashed" },
+    { "id": "e-apertura-leads", "from": "apertura", "to": "crm_leads", "variant": "emphasis" },
+    { "id": "e-leads-matriculas", "from": "crm_leads", "to": "matriculas", "label": "matrícula", "variant": "emphasis" },
+    { "id": "e-matriculas-informe", "from": "matriculas", "to": "informe_final", "label": "cierre", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Fase 1: Diagnóstico y Accesos",
+      "items": [
+        "Control total y auditoría de credenciales de todas las herramientas",
+        "Diagnóstico de fallos en bots de Kommo y flujos Make",
+        "Alineación con Antonia para la web y Fran para Instagram"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Fase 2: Optimización y Pauta",
+      "items": [
+        "Estabilización de automatizaciones y canales de mensajería",
+        "Diseño de estrategia publicitaria para Admisión 2027",
+        "Activación de campañas en Meta Ads y secuencias en Brevo"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Fase 3: Admisión y Matrícula 2027",
+      "items": [
+        "Lanzamiento masivo de matrícula y captación intensiva",
+        "Seguimiento y conversión en tiempo real de prospectos en CRM",
+        "Entrega de informe final de desempeño y transición consolidada"
+      ]
+    }
+  ]
+}
