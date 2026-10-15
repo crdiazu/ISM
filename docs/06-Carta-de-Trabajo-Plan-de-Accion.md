@@ -129,48 +129,50 @@ Tomar control completo de la operación tecnológica y de marketing digital del 
 
 ---
 
-## 5. ENTREGABLES FASE 1 (30 SEP 2026)
+## 5. ENTREGABLES FASE 1 (30 SEP 2026 — 100% COMPLETADOS)
 
 ### 5.1. Documentos
 
 | # | Documento | Estado |
 |---|---|---|
-| 1 | Inventario completo de accesos y credenciales | ✅ Creado |
-| 2 | Diagnóstico de todas las plataformas | ⬜ Pendiente |
-| 3 | Acuerdo de confidencialidad firmado | ✅ Borrador |
-| 4 | Política de privacidad para el sitio web | ✅ Borrador |
-| 5 | Roadmap de actualización web (Antonia) | ⬜ Pendiente |
-| 6 | Protocolo de contenido (Profe 1 y 2) | ⬜ Pendiente |
-| 7 | Borrador de campaña matrícula 2027 | ⬜ Pendiente |
-| 8 | Brief de investigación de audiencia | ⬜ Pendiente |
-| 9 | Informe final fase 1 | ⬜ Pendiente |
+| 1 | Inventario completo de accesos y credenciales | ✅ Creado y asegurado (`docs/Registro de Claves y Accesos.md`) |
+| 2 | Diagnóstico de todas las plataformas | ✅ Completado (`docs/tecnologias_y_plataformas.md`) |
+| 3 | Acuerdo de confidencialidad firmado | ✅ Modelo entregado (`docs/01-Acuerdo-de-Confidencialidad.md`) |
+| 4 | Política de privacidad para el sitio web | ✅ Elaborada para Ley 19.628 (`docs/02-Politica-de-Privacidad-SitioWeb.md`) |
+| 5 | Roadmap de actualización web (Antonia) | ✅ Entregado (`docs/08-Roadmap-Antonia-Web.md`) |
+| 6 | Protocolo de contenido (Profe 1, Profe 2, Fran) | ✅ Entregado (`docs/09-Protocolo-Contenido.md`) |
+| 7 | Plan de campaña matrícula 2027 | ✅ Entregado (`docs/10-Plan-Campana-Matricula-2027.md`) |
+| 8 | Brief de investigación de audiencia | ✅ Entregado (`docs/07-Brief-Investigacion-Audiencia.md`) |
+| 9 | Informe final de situación Fase 1 | ✅ Entregado (`docs/12-Informe-de-Avance-Fase-1.md` + Web) |
 
 ### 5.2. Acciones técnicas
 
 | # | Acción | Estado |
 |---|---|---|
-| 1 | Acceso confirmado a todas las plataformas | ⬜ Pendiente |
-| 2 | Cambio de contraseñas (seguridad) | ⬜ Pendiente |
-| 3 | Documentación de claves en ficha segura | ⬜ Pendiente |
-| 4 | Bot de Kommo diagnosticado | ⬜ Pendiente |
-| 5 | Flujos de Make documentados | ⬜ Pendiente |
-| 6 | Chatfuel verificado | ⬜ Pendiente |
-| 7 | Meta Business Suite revisado | ⬜ Pendiente |
-| 8 | Brevo revisado y contactos verificados | ⬜ Pendiente |
-| 9 | Facebook Pixel verificado | ⬜ Pendiente |
-| 10 | Correo institucional de Cristian creado (cristian@ismchile.cl) | ⬜ Pendiente |
+| 1 | Acceso confirmado a todas las plataformas | ✅ Completado |
+| 2 | Cambio y verificación de contraseñas | ✅ Completado en bóveda segura |
+| 3 | Documentación de claves en ficha segura | ✅ Completado |
+| 4 | Bot de Kommo diagnosticado y estructurado | ✅ Mapeado bot principal + 10 sub-bots |
+| 5 | Flujos de Make documentados | ✅ Completado (`docs/integrations_map.md`) |
+| 6 | Chatfuel verificado y sincronizado | ✅ Completado (línea y flujos) |
+| 7 | Meta Business Suite revisado y administradores asignados | ✅ Completado |
+| 8 | Brevo revisado y contactos verificados | ✅ Completado |
+| 9 | Facebook Pixel verificado | ✅ Completado |
+| 10 | Correo institucional / perfiles técnicos | ✅ Completado |
 
 ---
 
-## 6. CRONOGRAMA — FASE 2 (OCTUBRE 2026)
+## 6. CRONOGRAMA — FASE 2 (OCTUBRE 2026 — EN CURSO)
 
-| Semana | Acción | Entregable |
+| Semana | Acción | Entregable / Estado |
 |---|---|---|
-| Oct 1-4 | Lanzamiento de campaña digital (Meta Ads + Google Ads) | Campañas activas |
-| Oct 5-11 | Optimización de campañas + follow-up de leads | Reporte semanal |
-| Oct 12-18 | Coordinar con Antonia: actualización de sitio para matrícula | Sitio actualizado |
-| Oct 19-25 | Campaña de email marketing (Brevo) + WhatsApp | Emails enviados |
-| Oct 26-31 | Preparación final para noviembre (landing, formularios) | **LISTO PARA NOVIEMBRE** |
+| Oct 1-4 | Lanzamiento de campaña digital preliminar | ✅ Campañas activas en Meta Ads |
+| Oct 5-11 | Mapeo bots WhatsApp en Kommo + Catálogo 2027 | ✅ 10 Sub-bots + Brochures vinculados |
+| **Oct 13** | **APERTURA ADMISIÓN 2027 (Preventa)** | 🚀 **Apertura comercial (Valores congelados)** |
+| Oct 12-18 | Coordinar con Antonia: actualización de sitio para matrícula | 🔄 En curso (Landing de Admisión 2027) |
+| Oct 19-25 | Campaña de email marketing (Brevo) + WhatsApp | ⏳ Programado |
+| Oct 26-31 | Preparación final para noviembre (landing, formularios) | ⏳ Programado |
+
 
 ---
 

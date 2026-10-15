@@ -222,14 +222,14 @@ Al salir de la reunión se debe tener:
 
 ## 6. SCORING ACTUALIZADO
 
-| Dominio | Peso | Score Antes | Score Después (estimado) |
-|---------|------|-------------|--------------------------|
-| Credenciales y Accesos | 25% | 30/100 | 80/100 |
-| Autenticación | 20% | 25/100 | 75/100 |
-| Monitoreo y Logs | 15% | 10/100 | 50/100 |
-| Infraestructura | 15% | 40/100 | 70/100 |
-| Protección de Datos | 15% | 50/100 | 60/100 |
-| Cumplimiento Legal | 10% | 60/100 | 70/100 |
+| Dominio                | Peso | Score Antes | Score Después (estimado) |
+| ---------------------- | ---- | ----------- | ------------------------ |
+| Credenciales y Accesos | 25%  | 30/100      | 80/100                   |
+| Autenticación          | 20%  | 25/100      | 75/100                   |
+| Monitoreo y Logs       | 15%  | 10/100      | 50/100                   |
+| Infraestructura        | 15%  | 40/100      | 70/100                   |
+| Protección de Datos    | 15%  | 50/100      | 60/100                   |
+| Cumplimiento Legal     | 10%  | 60/100      | 70/100                   |
 
 **SCORE ESTIMADO POST-REUNIÓN: 68/100** — ⚠️ APROBADO CON RESERVAS
 

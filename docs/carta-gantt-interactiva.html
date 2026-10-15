@@ -723,8 +723,8 @@
     <div class="kpi-items">
       <div class="kpi-item">Período: <strong>19 Ago – 30 Nov 2026</strong></div>
       <div class="kpi-item">Duración: <strong>104 Días</strong></div>
-      <div class="kpi-item">Progreso Global: <strong id="global-progress">38%</strong></div>
-      <div class="kpi-item">Hitos Clave: <strong>5 Hitos</strong></div>
+      <div class="kpi-item">Progreso Global: <strong id="global-progress">65%</strong></div>
+      <div class="kpi-item">Hitos Clave: <strong>6 Hitos</strong></div>
     </div>
     <div>Instituto Santa María • Coordinación de Tecnología & Marketing</div>
   </footer>
@@ -733,7 +733,7 @@
     // Project Data Definition
     const PROJECT_START = new Date("2026-08-17T00:00:00");
     const PROJECT_END = new Date("2026-12-05T00:00:00");
-    const TODAY = new Date("2026-09-16T00:00:00");
+    const TODAY = new Date("2026-10-11T00:00:00");
 
     const GANTT_DATA = [
       {
@@ -741,7 +741,7 @@
         isPhase: true,
         phaseKey: "fase1",
         title: "FASE 1: DIAGNÓSTICO Y ACCESO (19 AGO - 11 SEP)",
-        badge: "100% AUDITADO",
+        badge: "100% COMPLETADA",
         items: [
           { id: "t1", title: "Reunión inicial con Mary Luz (prioridades y alcance)", start: "2026-08-19", end: "2026-08-20", person: "Cristian", progress: 100, status: "done", deliverable: "Acta de reunión y prioridades" },
           { id: "t2", title: "Recepción de accesos y credenciales maestras", start: "2026-08-20", end: "2026-08-28", person: "Cristian", progress: 100, status: "done", deliverable: "Ficha de credenciales seguras" },
@@ -750,9 +750,9 @@
           { id: "t5", title: "Auditoría Brevo y validación base de contactos", start: "2026-08-26", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Reporte email marketing" },
           { id: "t6", title: "Diagnóstico Chatfuel y flujos WhatsApp", start: "2026-08-27", end: "2026-09-04", person: "Cristian", progress: 100, status: "done", deliverable: "Diagnóstico bot WhatsApp" },
           { id: "m1", title: "HITO 1: Entrega Informe Diagnóstico Consolidado", start: "2026-09-04", end: "2026-09-04", person: "Cristian", progress: 100, status: "milestone", isMilestone: true, deliverable: "Informe Diagnóstico Completo" },
-          { id: "t7", title: "Securización: Cambio y documentación de contraseñas", start: "2026-09-04", end: "2026-09-11", person: "Cristian", progress: 85, status: "active", deliverable: "Ficha de accesos blindada" },
-          { id: "t8", title: "Roadmap Web: Coordinación con Antonia (WordPress)", start: "2026-09-04", end: "2026-09-11", person: "Antonia", progress: 75, status: "active", deliverable: "Roadmap Antonia Web" },
-          { id: "t9", title: "Alineación de contenidos en redes (Fran / Profes)", start: "2026-09-04", end: "2026-09-11", person: "Fran", progress: 80, status: "active", deliverable: "Protocolo de contenido" }
+          { id: "t7", title: "Securización: Cambio y documentación de contraseñas", start: "2026-09-04", end: "2026-09-11", person: "Cristian", progress: 100, status: "done", deliverable: "Ficha de accesos blindada" },
+          { id: "t8", title: "Roadmap Web: Coordinación con Antonia (WordPress)", start: "2026-09-04", end: "2026-09-11", person: "Antonia", progress: 100, status: "done", deliverable: "Roadmap Antonia Web" },
+          { id: "t9", title: "Alineación de contenidos en redes (Fran / Profes)", start: "2026-09-04", end: "2026-09-11", person: "Fran", progress: 100, status: "done", deliverable: "Protocolo de contenido" }
         ]
       },
       {
@@ -760,12 +760,12 @@
         isPhase: true,
         phaseKey: "fase12",
         title: "FASE 1.2: OPTIMIZACIÓN Y CAMPAÑA (14 SEP - 30 SEP)",
-        badge: "EN PROGRESO",
+        badge: "100% COMPLETADA",
         items: [
-          { id: "t10", title: "Ajustes en bot Kommo + escenarios de Make", start: "2026-09-14", end: "2026-09-18", person: "Cristian", progress: 40, status: "active", deliverable: "Bot y webhooks activos" },
-          { id: "t11", title: "Pausa Fiestas Patrias (Receso Operacional)", start: "2026-09-17", end: "2026-09-18", person: "Mary Luz", progress: 0, status: "pending", deliverable: "Feriado legal" },
-          { id: "t12", title: "Borrador de Campaña Matrícula 2027", start: "2026-09-21", end: "2026-09-25", person: "Cristian", progress: 25, status: "pending", deliverable: "Estrategia Campaña 2027" },
-          { id: "m2", title: "HITO 2: Informe Final Fase 1 y Presentación", start: "2026-09-30", end: "2026-09-30", person: "Cristian", progress: 0, status: "milestone", isMilestone: true, deliverable: "Cierre Fase 1 a Dirección" }
+          { id: "t10", title: "Ajustes en bot Kommo + escenarios de Make", start: "2026-09-14", end: "2026-09-18", person: "Cristian", progress: 100, status: "done", deliverable: "Bot y webhooks activos" },
+          { id: "t11", title: "Pausa Fiestas Patrias (Receso Operacional)", start: "2026-09-17", end: "2026-09-18", person: "Mary Luz", progress: 100, status: "done", deliverable: "Feriado legal" },
+          { id: "t12", title: "Borrador de Campaña Matrícula 2027", start: "2026-09-21", end: "2026-09-25", person: "Cristian", progress: 100, status: "done", deliverable: "Estrategia Campaña 2027" },
+          { id: "m2", title: "HITO 2: Informe Final Fase 1 y Presentación", start: "2026-09-30", end: "2026-09-30", person: "Cristian", progress: 100, status: "milestone", isMilestone: true, deliverable: "Cierre Fase 1 a Dirección" }
         ]
       },
       {
@@ -773,11 +773,13 @@
         isPhase: true,
         phaseKey: "fase2",
         title: "FASE 2: ACTIVACIÓN Y PAUTA DIGITAL (01 OCT - 31 OCT)",
-        badge: "OCTUBRE",
+        badge: "EN CURSO (OCTUBRE)",
         items: [
-          { id: "t13", title: "Lanzamiento de campaña digital (Meta Ads & Google Ads)", start: "2026-10-01", end: "2026-10-04", person: "Cristian", progress: 0, status: "pending", deliverable: "Campañas en vivo" },
-          { id: "t14", title: "Optimización continua y seguimiento de leads", start: "2026-10-05", end: "2026-10-31", person: "Cristian", progress: 0, status: "pending", deliverable: "Reporte semanal de conversión" },
-          { id: "t15", title: "Actualización de sitio web para matrícula con Antonia", start: "2026-10-12", end: "2026-10-18", person: "Antonia", progress: 0, status: "pending", deliverable: "Landing de Admisión lista" },
+          { id: "t13", title: "Lanzamiento de campaña digital (Meta Ads & Google Ads)", start: "2026-10-01", end: "2026-10-04", person: "Cristian", progress: 100, status: "done", deliverable: "Campañas en vivo" },
+          { id: "t_bot", title: "Mapeo Bot Enrutador WhatsApp + 10 Sub-bots Kommo", start: "2026-10-05", end: "2026-10-10", person: "Cristian", progress: 100, status: "done", deliverable: "Flujo automatizado enrutador" },
+          { id: "m_prev", title: "HITO: Apertura Admisión 2027 (Precios congelados)", start: "2026-10-13", end: "2026-10-13", person: "Mary Luz", progress: 90, status: "milestone", isMilestone: true, deliverable: "Apertura comercial 13 Octubre" },
+          { id: "t14", title: "Optimización continua y seguimiento de leads", start: "2026-10-05", end: "2026-10-31", person: "Cristian", progress: 45, status: "active", deliverable: "Reporte semanal de conversión" },
+          { id: "t15", title: "Actualización de sitio web para matrícula con Antonia", start: "2026-10-12", end: "2026-10-18", person: "Antonia", progress: 25, status: "active", deliverable: "Landing de Admisión lista" },
           { id: "t16", title: "Campaña de Email Marketing (Brevo) + WhatsApp", start: "2026-10-19", end: "2026-10-25", person: "Cristian", progress: 0, status: "pending", deliverable: "Secuencias de emails enviadas" },
           { id: "t17", title: "Preparación final de landings, bots y formularios", start: "2026-10-26", end: "2026-10-31", person: "Cristian", progress: 0, status: "pending", deliverable: "Stack verificado para noviembre" },
           { id: "m3", title: "HITO 3: Ecosistema Listo para Admisión 2027", start: "2026-10-31", end: "2026-10-31", person: "Mary Luz", progress: 0, status: "milestone", isMilestone: true, deliverable: "Validación General de Sistemas" }

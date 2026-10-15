@@ -226,6 +226,15 @@ coordinador_tecnologia: "Cristian (8h/semana)"
 | **Cuenta publicitaria** | Asociada a la empresa |
 | **Administradora** | Mary Luz Leal Barrera |
 | **Estado** | ✅ Traspasado |
+clave mia correo : iYxjb&cDa~C0*+BH
+
+
+kmTNY+iQH$&S5~ht === 
+
+
+https://www.facebook.com/ismchile
+
+
 
 ### Checklist
 
