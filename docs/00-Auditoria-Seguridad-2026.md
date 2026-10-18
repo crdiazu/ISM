@@ -9,6 +9,12 @@ reunion_remediacion: "2026-09-24 (Miércoles, 2 horas)"
 
 # ANÁLISIS DE SEGURIDAD — INSTITUTO SANTA MARÍA (ISM)
 
+> [!info] Nota de actualización — 17-oct-2026
+> El Instituto **dejó de usar Kommo**. Las referencias a Kommo en esta auditoría (plataformas, 2FA, accesos) son históricas y ya no requieren acción. El stack vigente es WordPress, Meta, Chatfuel, Make, Brevo y la hoja de leads en Google Sheets.
+
+> [!info] Hallazgos de superficie web — 17-oct-2026
+> De la medición de solo lectura de `www.ismchile.cl` (ver [[14-Auditoria-Comportamiento-Web-2026]]) se agregan tres ítems: **(1)** listado de directorios activo en `/wp-content/uploads/`; **(2)** sin cabeceras de seguridad en el sitio público (HSTS, CSP, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`); **(3)** `wp-login.php` y `/wp-json/` expuestos sin límite de intentos (usuarios API bloqueados ✅, `xmlrpc` 405 ✅). Sin evidencia de compromiso.
+
 > [!info] Contexto
 > Reunión de remediación: **Miércoles 24 de septiembre** (2 horas). Al salir de esta reunión, se debe tener toda la información disponible para manejar el stack tecnológico completo.
 

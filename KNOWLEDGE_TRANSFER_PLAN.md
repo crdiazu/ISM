@@ -6,7 +6,7 @@ Lograr el control total sobre el proceso de marketing y activos digitales del In
 ## Hitos Clave
 
 ### Mes 1: Auditoría y Estabilización
-- **Auditoría de Herramientas:** Revisar el estado actual de Meta Business Suite, Kommo, Chatfuel, Brevo, Make y WhatsApp Business.
+- **Auditoría de Herramientas:** Revisar el estado actual de Meta Business Suite, Chatfuel, Brevo, Make y WhatsApp Business.
 - **Unificación de Redes Sociales:** Coordinar con Fran (encargada de IG Providencia) para que asuma la gestión de la sede Maipú.
 - **Contacto con Webmaster:** Establecer canal de comunicación con la persona encargada de la web (contratada por Felipe) para alinear estrategias (aliado estratégico).
 
@@ -16,7 +16,7 @@ Lograr el control total sobre el proceso de marketing y activos digitales del In
 - **Revisión de Flujos de Chatbot:** Auditar y mejorar los flujos de Chatfuel y WhatsApp Business.
 
 ### Mes 3: Control y Automatización Avanzada
-- **Consolidación CRM:** Asegurar que todos los leads fluyen correctamente hacia Kommo y se nutren vía Brevo.
+- **Consolidación del registro de leads:** Asegurar que todos los leads fluyen correctamente a la base `Leads Admisión 2027` (Google Sheets) y se nutren vía Brevo.
 - **Documentación de Procesos:** Volcar todo el conocimiento operativo en la carpeta `docs/brain_dump/` y estructurarlo gradualmente.
 - **Dashboard de Control:** Establecer métricas claras para la toma de decisiones.
 

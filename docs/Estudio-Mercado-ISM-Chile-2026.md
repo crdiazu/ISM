@@ -88,11 +88,11 @@ $$\frac{LTV}{CAC} \ge 3$$
 #### Optimización del Embudo (Funnel) y Conversión
 * **Generación de Confianza:** El **88,4% de los empleadores** valora la formación virtual/flexible como "buena o excelente". Este dato debe ser un *Proof Point* central en las Landing Pages para reducir la ansiedad del postulante.
 * **Omnicanalidad:** Implementar pauta en **Google Ads** para capturar la demanda transaccional (intención de búsqueda de cursos) y **Meta Ads / TikTok Ads** para el awareness en el segmento de reconversión laboral y trabajadores de 35+ años.
-* **Velocidad de Respuesta:** El momentum de conversión se pierde tras los **5 minutos**. Es imperativo automatizar el primer contacto vía WhatsApp/Chatbot (Kommo) para la entrega inmediata de mallas curriculares y derivación a la secretaría.
+* **Velocidad de Respuesta:** El momentum de conversión se pierde tras los **5 minutos**. Es imperativo automatizar el primer contacto vía WhatsApp/Chatbot (Chatfuel) para la entrega inmediata de mallas curriculares y derivación a la secretaría.
 
 #### Recomendaciones Clave para la Campaña de Matrículas 2027:
 1. **Geotargeting Estratégico:** Priorizar pauta virtual/híbrida y local en el radio de las sedes (Providencia y Maipú), sumando regiones con déficit de oferta técnica.
 2. **Messaging de Retorno Rápido (ROI):** Sustituir la venta de "educación tradicional" por la venta de **"mejora de ingresos y emprendimiento rápido"**. El target (edad promedio 39,7 años, 89,6% trabajadores) busca rentabilidad y no perder tiempo.
 3. **Gancho de "Matrícula Costo Cero":** Utilizar este beneficio como el principal Call to Action (CTA) para maximizar la tasa de clics y captación en entornos competitivos.
 4. **Enfoque en Servicios Autónomos:** Resaltar la formación para el emprendimiento en Belleza/Estética, Gastronomía y Salud como una vía rápida hacia ingresos independientes.
-5. **Automatización de Respuesta Rápida:** Calibrar Kommo y WhatsApp Business para responder en menos de 5 minutos, antes de que el prospecto cotice en otro instituto.
+5. **Automatización de Respuesta Rápida:** Calibrar el bot (Chatfuel) y WhatsApp Business para responder en menos de 5 minutos, antes de que el prospecto cotice en otro instituto.

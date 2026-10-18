@@ -7,9 +7,12 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 
 # MAPA DE FLUJOS DE COMUNICACIÓN
 
-## Instituto Santa María (ISM) — Agosto 2026
+## Instituto Santa María (ISM) — Agosto 2026 · Actualizado Octubre 2026
 
 **Propósito:** Documentar cómo fluye la información entre las diferentes plataformas, líneas telefónicas y canales de comunicación del Instituto.
+
+> [!info] Actualización 17-oct-2026 — salida de Kommo
+> Se **deja de usar Kommo**. El registro y seguimiento comercial pasa a **Google Sheets (`Leads Admisión 2027`) + Make.com**, con avisos a las asesoras de sede y nutrición por **Brevo**.
 
 ---
 
@@ -20,23 +23,16 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 │                        ECOSISTEMA ISM                               │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐     │
-│  │ SITIO WEB│───→│  KOMMO   │───→│ SECRETARÍA│───→│ ALUMNO   │     │
-│  │WordPress │    │   CRM    │    │ (Maipú)  │    │          │     │
-│  └──────────┘    └──────────┘    └──────────┘    └──────────┘     │
-│       │                │                                             │
-│       │                │                                             │
-│       ▼                ▼                                             │
-│  ┌──────────┐    ┌──────────┐                                       │
-│  │ CHATFUEL │    │   MAKE   │                                       │
-│  │WhatsApp  │    │  Automat.│                                       │
-│  └──────────┘    └──────────┘                                       │
-│       │                                                             │
-│       ▼                                                             │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐                     │
-│  │ WhatsApp │───→│ SECRETA. │───→│ ALUMNO   │                     │
-│  │ Business │    │ (Maipú)  │    │ MATRICUL.│                     │
-│  └──────────┘    └──────────┘    └──────────┘                     │
+│  ┌──────────┐    ┌──────────┐    ┌────────────┐   ┌──────────┐     │
+│  │ SITIO WEB│───→│ CHATFUEL │───→│    MAKE    │──→│ HOJA DE  │     │
+│  │WordPress │    │   BOT    │    │ Automat.   │   │ LEADS    │     │
+│  └──────────┘    └──────────┘    └────────────┘   └──────────┘     │
+│       │                                    │                        │
+│       ▼                                    ▼                        │
+│  ┌──────────┐                        ┌────────────┐                  │
+│  │ WhatsApp │───→   MAKE   ────────→│ ASESORAS   │───→ ALUMNO      │
+│  │ Business │                        │ Nataly/Karin│    MATRICUL.   │
+│  └──────────┘                        └────────────┘                  │
 │                                                                     │
 │  ┌──────────┐    ┌──────────┐                                      │
 │  │   META   │───→│ CHATFUEL │                                      │
@@ -80,15 +76,15 @@ INTERESADO
 ┌─────────────────────────────────────────────────────────────────┐
 │ PROCESAMIENTO AUTOMÁTICO                                        │
 │                                                                  │
-│  Formulario web ──→ Make (escenario) ──→ Kommo (CRM)           │
-│                                          └─→ Notificación a    │
-│                                              secretaría         │
+│  Formulario web ──→ Make (escenario) ──→ Google Sheets (leads) │
+│                                          └─→ Aviso a asesora    │
+│                                              de sede             │
 │                                                                  │
 │  WhatsApp web ──→ Chatfuel (bot) ──→ Respuesta automática      │
-│                                      └─→ Derivación a          │
-│                                          secretaría             │
+│                                      └─→ Registro en hoja +     │
+│                                          aviso a la sede        │
 │                                                                  │
-│  Meta Ads ──→ Landing page ──→ Formulario ──→ Kommo/Make       │
+│  Meta Ads ──→ Landing page ──→ Formulario ──→ Make/Sheets      │
 │                                                                  │
 │  Instagram/Facebook ──→ Meta Business Suite ──→ Notificación   │
 └─────────────────────────────────────────────────────────────────┘
@@ -123,10 +119,10 @@ INTERESADO
 │                                                                  │
 │  [Formulario web] ──trigger──→ [Make: escenario 1]              │
 │       │                          │                               │
-│       │                          ├──→ [Kommo: crear lead]       │
+│       │                          ├──→ [Google Sheets: nuevo lead]│
 │       │                          │                               │
-│       │                          ├──→ [Notificación interna]    │
-│       │                          │    (email/Slaworking?)       │
+│       │                          ├──→ [Notificación a asesora]    │
+│       │                          │    (email/WhatsApp)           │
 │       │                          │                               │
 │       │                          └──→ [Log/registro]            │
 │       │                                                          │
@@ -187,9 +183,10 @@ INTERESADO
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ LÍNEA: 56978920810 (Entel)                                     │
-│ Uso: Kommo (CRM)                                                │
+│ Uso: Línea liberada al dejar Kommo                              │
 │ Estado: ✅ Ya contratada por la empresa                         │
-│ Función: Línea dedicada para automatización de Kommo            │
+│ Función: Disponible (reasignar a WhatsApp Business alterno o    │
+│          a la operación de sedes)                               │
 │ Cambio titularidad: NO REQUERIDO                                │
 ├─────────────────────────────────────────────────────────────────┤
 │ LÍNEA: 56952006799 (Entel)                                     │
@@ -304,11 +301,11 @@ INTERESADO
 | Plataforma origen | Plataforma destino | Tipo de integración | Estado |
 |---|---|---|---|
 | Formulario web (WordPress) | Make | Webhook | ✅ Activo (verificar) |
-| Make | Kommo | API | ✅ Activo (verificar) |
+| Make | Google Sheets (Leads Admisión 2027) | API | ⚠️ Pendiente crear/verificar |
+| Make | Aviso a asesora de sede (email/WhatsApp) | API | ⚠️ Pendiente configurar |
 | Make | Brevo | API | ⚠️ Pendiente configurar |
 | Meta Ads | Chatfuel | API nativa | ✅ Activo (verificar) |
 | Chatfuel | WhatsApp Business API | API | ✅ Activo (verificar) |
-| Kommo | WhatsApp (56978920810) | API | ✅ Activo (verificar) |
 | Meta Business Suite | Facebook/Instagram | Nativo | ✅ Activo |
 | Facebook Pixel | Meta Ads | Nativo | ✅ Activo (verificar) |
 | ShortPixel | WordPress | Plugin | ✅ Activo |
@@ -320,22 +317,21 @@ INTERESADO
 ### 7.1. Integridad del flujo
 
 - [ ] Verificar que el formulario de contacto web llega correctamente a Make
-- [ ] Verificar que Make envía correctamente los datos a Kommo
-- [ ] Verificar que Kommo genera notificaciones a secretaría
+- [ ] Verificar que Make registra correctamente el lead en Google Sheets
+- [ ] Verificar que Make envía el aviso a la asesora de sede
 - [ ] Verificar que Chatfuel responde correctamente en WhatsApp
 - [ ] Verificar que las campañas de Meta Ads llegan a la audiencia correcta
-- [ ] Probar el flujo completo: formulario → Make → Kommo → secretaría → alumno
+- [ ] Probar el flujo completo: formulario → Make → Sheets → aviso a sede → alumno
 
 ### 7.2. Segregación de líneas
 
-- [ ] Confirmar que la línea 56990059968 (WhatsApp Business) NO está conectada a Kommo ni Chatfuel
+- [ ] Confirmar que la línea 56990059968 (WhatsApp Business) NO está conectada a Chatfuel
 - [ ] Confirmar que la línea 56952006799 (Chatfuel) NO recibe atención directa
-- [ ] Confirmar que la línea 56978920810 (Kommo) NO recibe atención directa
+- [ ] Confirmar la reasignación o baja de la línea 56978920810 (ex Kommo)
 
 ### 7.3. Respuesta automática
 
 - [ ] Verificar tiempo de respuesta del bot de Chatfuel
-- [ ] Verificar si el bot de Kommo está funcionando correctamente (problema conocido)
 - [ ] Verificar que Make no tiene errores en sus escenarios
 
 ---
@@ -346,9 +342,9 @@ INTERESADO
 
 | Escenario | Trigger | Acciones | Estado |
 |---|---|---|---|
-| [Por documentar] | Formulario web | [Por verificar] | ⬜ Pendiente |
-| [Por documentar] | Meta Ads | [Por verificar] | ⬜ Pendiente |
-| [Por documentar] | [Otro trigger] | [Por verificar] | ⬜ Pendiente |
+| [Por documentar] | Formulario web | Registrar en Sheets + aviso + Brevo | ⬜ Pendiente |
+| [Por documentar] | Chatfuel (lead calificado) | Registrar en Sheets + aviso a sede | ⬜ Pendiente |
+| [Por documentar] | Ruta operativa | Correo a secretaría de sede | ⬜ Pendiente |
 
 ---
 
@@ -375,11 +371,11 @@ Se recomienda crear un diagrama visual completo usando herramientas como:
 Realizar una prueba completa del flujo principal:
 1. Enviar un formulario de prueba desde el sitio web
 2. Verificar que llega a Make
-3. Verificar que Make lo envía a Kommo
-4. Verificar que Kommo notifica a secretaría
-5. Responder desde secretaría
+3. Verificar que Make lo registra en la hoja de leads
+4. Verificar que Make notifica a la asesora de la sede
+5. Responder desde el WhatsApp de la sede
 6. Verificar que el "alumno" recibe la respuesta
 
 ---
 
-*Documento generado el 19 de agosto de 2026. Requiere acceso a las plataformas para completar la documentación.*
+*Documento generado el 19 de agosto de 2026. Actualizado el 17 de octubre de 2026 (salida de Kommo). Requiere acceso a las plataformas para completar la documentación.*

@@ -1,0 +1,104 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Flujo de Atención Comercial Inteligente — Santa MarIA (Admisión 2027)",
+    "animation": "trace",
+    "visual_preset": "signal-flow",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "flujo-24-7",
+        "label": "Ruta IA 24/7 (Alta Empleabilidad)",
+        "focus": ["lead", "wa_inbox", "santa_maria", "especialista", "catalogo", "cierre_24_7"],
+        "note": "El prospecto consulta en cualquier horario; la IA asesora con enfoque de formación técnica y alta empleabilidad."
+      },
+      {
+        "id": "derivacion-humana",
+        "label": "Derivación y App Secretarias",
+        "focus": ["santa_maria", "horario_check", "push_app", "secretaria_app", "cierre_humano"],
+        "note": "Si el prospecto solicita atención humana o es horario hábil, la app móvil de Chatfuel notifica a secretarias y pausa el bot."
+      },
+      {
+        "id": "fuera-horario",
+        "label": "Gestión Fuera de Horario",
+        "focus": ["horario_check", "aviso_horario", "agenda_prospecto"],
+        "note": "Fuera de horario laboral la IA informa horarios de atención, agenda la cita y pre-inscribe al postulante."
+      }
+    ],
+    "output": "ISM/docs/archify-flujo-atencion-chatfuel.html"
+  },
+  "lanes": [
+    { "id": "usuario", "label": "Prospecto / Aspirante" },
+    { "id": "ia_core", "label": "Chatfuel IA — Santa MarIA 24/7" },
+    { "id": "politica", "label": "Control de Horario & Agendamiento", "variant": "exception" },
+    { "id": "equipo_humano", "label": "Secretaría Comercial (App Chatfuel)" }
+  ],
+  "phases": [
+    { "id": "ingreso", "label": "1. Captación WhatsApp", "fromCol": 0, "toCol": 1 },
+    { "id": "calificacion", "label": "2. Diagnóstico & Asesoría IA", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "conversion", "label": "3. Cierre / Matrícula", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "grp_ia", "label": "Núcleo Asesor IA", "lane": "ia_core", "fromCol": 1, "toCol": 3, "variant": "emphasis" },
+    { "id": "grp_horario", "label": "Filtro Horario de Atención", "lane": "politica", "fromCol": 3, "toCol": 4, "variant": "security" },
+    { "id": "grp_secretarias", "label": "Gestión App Móvil", "lane": "equipo_humano", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["lead", "wa_inbox", "santa_maria", "especialista", "catalogo", "cierre_24_7"],
+  "nodes": [
+    { "id": "lead", "lane": "usuario", "col": 0, "type": "external", "label": "Postulante", "sublabel": "WhatsApp / Web", "width": 136 },
+    { "id": "wa_inbox", "lane": "ia_core", "col": 1, "type": "frontend", "label": "Chatfuel Inbox", "sublabel": "+56 9 6428 5484", "tag": "Admisión 2027", "width": 136 },
+    { "id": "santa_maria", "lane": "ia_core", "col": 2, "type": "backend", "label": "Santa MarIA", "sublabel": "Tono empático + 3 opciones", "tag": "IA 24/7", "width": 136 },
+    { "id": "especialista", "lane": "ia_core", "col": 3, "type": "backend", "label": "Especialista Sede", "sublabel": "Maipú / Providencia", "tag": "Cursos Técnicos", "width": 136 },
+    { "id": "catalogo", "lane": "ia_core", "col": 4, "type": "database", "label": "Alta Empleabilidad", "sublabel": "Mallas, horarios, precios", "width": 136 },
+    { "id": "cierre_24_7", "lane": "ia_core", "col": 5, "type": "backend", "label": "Pre-Matrícula IA", "sublabel": "Agendamiento y Reserva", "tag": "Cierre 24/7", "width": 136 },
+    { "id": "horario_check", "lane": "politica", "col": 3, "type": "security", "label": "¿Horario Hábil?", "sublabel": "Horario de Atención", "tag": "Regla Comercial", "width": 136 },
+    { "id": "aviso_horario", "lane": "politica", "col": 4, "type": "security", "label": "Aviso Fuera Horario", "sublabel": "Informa horario secretaría", "width": 136 },
+    { "id": "agenda_prospecto", "lane": "politica", "col": 5, "type": "messagebus", "label": "Agendamiento 24/7", "sublabel": "Visita presencial reservada", "width": 136 },
+    { "id": "push_app", "lane": "equipo_humano", "col": 3, "type": "cloud", "label": "Push Notification", "sublabel": "App Chatfuel iOS/Android", "tag": "Alerta Instantánea", "width": 136 },
+    { "id": "secretaria_app", "lane": "equipo_humano", "col": 4, "type": "frontend", "label": "Secretaria en Turno", "sublabel": "Responde directo en App", "tag": "Pausa IA nativa", "width": 136 },
+    { "id": "cierre_humano", "lane": "equipo_humano", "col": 5, "type": "frontend", "label": "Matrícula Cerrada", "sublabel": "Atención cálida y personalizada", "tag": "Éxito Comercial", "width": 136 }
+  ],
+  "edges": [
+    { "id": "e-lead-inbox", "from": "lead", "to": "wa_inbox", "label": "escribe 'Hola'", "variant": "emphasis" },
+    { "id": "e-inbox-sm", "from": "wa_inbox", "to": "santa_maria", "variant": "default" },
+    { "id": "e-sm-esp", "from": "santa_maria", "to": "especialista", "label": "deriva sede", "variant": "emphasis" },
+    { "id": "e-esp-cat", "from": "especialista", "to": "catalogo", "label": "info técnica", "variant": "default" },
+    { "id": "e-cat-cierre", "from": "catalogo", "to": "cierre_24_7", "label": "reserva directa", "variant": "emphasis" },
+    { "id": "e-sm-check", "from": "santa_maria", "to": "horario_check", "label": "pide hablar", "variant": "security" },
+    { "id": "e-check-no", "from": "horario_check", "to": "aviso_horario", "label": "cerrado", "variant": "security", "role": "branch" },
+    { "id": "e-aviso-agenda", "from": "aviso_horario", "to": "agenda_prospecto", "variant": "dashed" },
+    { "id": "e-check-si", "from": "horario_check", "to": "push_app", "label": "en horario hábil", "variant": "emphasis" },
+    { "id": "e-push-sec", "from": "push_app", "to": "secretaria_app", "variant": "default" },
+    { "id": "e-sec-cierre", "from": "secretaria_app", "to": "cierre_humano", "label": "cierre presencial", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Asesoría Técnica y Empleabilidad 24/7",
+      "items": [
+        "Santa MarIA orienta con foco en cursos de alta empleabilidad y salida laboral rápida",
+        "Menú adaptativo de hasta 3 opciones numeradas (1️⃣, 2️⃣, 3️⃣) para máxima claridad en móviles",
+        "Especialistas dedicados por sede (Maipú y Providencia) con aranceles y mallas vigentes"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "App Móvil para Secretarias (Cero Fricción)",
+      "items": [
+        "Notificaciones Push directas en los teléfonos de secretarias sin pagar licencias de CRM",
+        "La IA se pausa automáticamente cuando una secretaria interviene desde la app",
+        "Secretarias responden en segundos sin necesidad de computador ni Make.com"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Ahorro Económico & Confiabilidad",
+      "items": [
+        "Eliminación total de Kommo CRM ($60-$90 USD/mes) y Make.com ($10-$30 USD/mes)",
+        "Ahorro anual comprobado: ~$1.8M a $2.1M CLP / año para el Instituto Santa María",
+        "Arquitectura 100% robusta: un solo canal, cero caídas de sincronización externa"
+      ]
+    }
+  ]
+}

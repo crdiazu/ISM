@@ -1,6 +1,9 @@
 # Flujo de Atención WhatsApp — Bot Principal (Enrutador)
 
-Este documento describe la arquitectura y lógica del chatbot principal de **Atención WhatsApp** en Kommo (Salesbot), encargado de dar la bienvenida, etiquetar la sede del contacto y derivar automáticamente a los sub-bots especializados por carrera.
+> [!info] Actualización 17-oct-2026 — arquitectura sin Kommo
+> Este bot **ya no corre en Kommo (Salesbot)**. Se reconstruye como un **único flujo maestro en Chatfuel** que da la bienvenida, captura `{{sede}}` y `{{curso}}`, y deriva al cierre humano vía **Make.com → Google Sheets + aviso a la asesora**. Se eliminan los sub-bots con ID de Kommo y las acciones de pipeline/etapa.
+
+Este documento describe la arquitectura y lógica del chatbot principal de **Atención WhatsApp**, encargado de dar la bienvenida, capturar la sede y la carrera del contacto y derivar automáticamente al cierre humano.
 
 ---
 
@@ -12,7 +15,7 @@ flowchart TD
     classDef startNode fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff;
     classDef questionNode fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#fff;
     classDef actionNode fill:#14532d,stroke:#4ade80,stroke-width:1px,color:#fff;
-    classDef subbotNode fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#fff;
+    classDef flowNode fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#fff;
     classDef humanNode fill:#7c2d12,stroke:#fb923c,stroke-width:1px,color:#fff;
 
     Start(["▶ INICIO (Lead escribe por WhatsApp)"]):::startNode --> Step0
@@ -27,62 +30,72 @@ flowchart TD
     Step41 --> Step0
 
     %% ATENCIÓN MANUAL Y LLAMADAS
-    Step32 --> Step33["<b>Acción Kommo</b><br/>Mueve lead a etapa 'Consulta abierta' (88567243)"]:::actionNode
+    Step32 --> Step33["<b>Acción: Webhook a Make</b><br/>Registra lead + avisa asesora + pausa bot"]:::actionNode
     Step37 --> Step39{"¿Prefieres WhatsApp<br/>o llamada?"}:::questionNode
     Step39 -->|"Prefiero WhatsApp"| Step0
     Step39 -->|"Espero que me llamen"| Step40["<b>Paso 40: Confirmación</b><br/>Te contactaremos pronto"]:::humanNode
 
     %% RAMA DE SEDES
-    Step2 -->|"Sede Maipú"| TagMaipu["<b>Paso 34: Acción</b><br/>Asigna Etiqueta: 'Sede Maipú'"]:::actionNode
-    Step2 -->|"Sede Providencia"| TagProvi["<b>Paso 35: Acción</b><br/>Asigna Etiqueta: 'Sede Providencia'"]:::actionNode
+    Step2 -->|"Sede Maipú"| TagMaipu["<b>Paso 34: Acción</b><br/>Guarda atributo {{sede}} = 'Maipú'"]:::actionNode
+    Step2 -->|"Sede Providencia"| TagProvi["<b>Paso 35: Acción</b><br/>Guarda atributo {{sede}} = 'Providencia'"]:::actionNode
 
     %% CATÁLOGO MAIPÚ
     TagMaipu --> Step1["<b>Paso 1: Catálogo Maipú</b><br/>¿Qué carrera te interesa?"]:::questionNode
-    Step1 -->|"Estilista Unisex"| Bot86298_1["🤖 Inicia Sub-Bot 86298<br/><i>(Estilista Maipú)</i>"]:::subbotNode
-    Step1 -->|"Peluquería Unisex"| Bot86298_2["🤖 Inicia Sub-Bot 86298<br/><i>(Peluquería Maipú)</i>"]:::subbotNode
-    Step1 -->|"Maquillaje Integral"| Bot86446["🤖 Inicia Sub-Bot 86446<br/><i>(Maquillaje Maipú)</i>"]:::subbotNode
-    Step1 -->|"Estética Integral"| Bot86402_1["🤖 Inicia Sub-Bot 86402<br/><i>(Estética Maipú)</i>"]:::subbotNode
-    Step1 -->|"Cosmetología"| Bot86402_2["🤖 Inicia Sub-Bot 86402<br/><i>(Cosmetología Maipú)</i>"]:::subbotNode
-    Step1 -->|"Masoterapia I."| Bot86408["🤖 Inicia Sub-Bot 86408<br/><i>(Masoterapia Maipú)</i>"]:::subbotNode
-    Step1 -->|"Pastelería y Rep."| Bot86694["🤖 Inicia Sub-Bot 86694<br/><i>(Pastelería Maipú)</i>"]:::subbotNode
+    Step1 -->|"Estilista Unisex"| BotMa_1["📄 Ficha Estilista Maipú<br/><i>({{curso}} = Estilista)</i>"]:::flowNode
+    Step1 -->|"Peluquería Unisex"| BotMa_2["📄 Ficha Peluquería Maipú<br/><i>({{curso}} = Peluquería)</i>"]:::flowNode
+    Step1 -->|"Maquillaje Integral"| BotMa_3["📄 Ficha Maquillaje Maipú<br/><i>({{curso}} = Maquillaje)</i>"]:::flowNode
+    Step1 -->|"Estética Integral"| BotMa_4["📄 Ficha Estética Maipú<br/><i>({{curso}} = Estética)</i>"]:::flowNode
+    Step1 -->|"Cosmetología"| BotMa_5["📄 Ficha Cosmetología Maipú<br/><i>({{curso}} = Cosmetología)</i>"]:::flowNode
+    Step1 -->|"Masoterapia I."| BotMa_6["📄 Ficha Masoterapia Maipú<br/><i>({{curso}} = Masoterapia)</i>"]:::flowNode
+    Step1 -->|"Pastelería y Rep."| BotMa_7["📄 Ficha Pastelería Maipú<br/><i>({{curso}} = Pastelería)</i>"]:::flowNode
     Step1 -->|"Otro"| Step32
 
     %% CATÁLOGO PROVIDENCIA
     TagProvi --> Step17["<b>Paso 17: Catálogo Providencia</b><br/>¿Qué carrera te interesa?"]:::questionNode
-    Step17 -->|"Estilista Unisex"| Bot86374_1["🤖 Inicia Sub-Bot 86374<br/><i>(Estilista Provi)</i>"]:::subbotNode
-    Step17 -->|"Peluquería Unisex"| Bot86374_2["🤖 Inicia Sub-Bot 86374<br/><i>(Peluquería Provi)</i>"]:::subbotNode
-    Step17 -->|"Maquillaje Integral"| Bot86430["🤖 Inicia Sub-Bot 86430<br/><i>(Maquillaje Provi)</i>"]:::subbotNode
-    Step17 -->|"Estética Integral"| Bot86404_1["🤖 Inicia Sub-Bot 86404<br/><i>(Estética Provi)</i>"]:::subbotNode
-    Step17 -->|"Cosmetología"| Bot86404_2["🤖 Inicia Sub-Bot 86404<br/><i>(Cosmetología Provi)</i>"]:::subbotNode
-    Step17 -->|"Masoterapia I."| Bot86420["🤖 Inicia Sub-Bot 86420<br/><i>(Masoterapia Provi)</i>"]:::subbotNode
-    Step17 -->|"Pastelería y Rep."| Bot86448["🤖 Inicia Sub-Bot 86448<br/><i>(Pastelería Providencia)</i>"]:::subbotNode
+    Step17 -->|"Estilista Unisex"| BotPr_1["📄 Ficha Estilista Providencia<br/><i>({{curso}} = Estilista)</i>"]:::flowNode
+    Step17 -->|"Peluquería Unisex"| BotPr_2["📄 Ficha Peluquería Providencia<br/><i>({{curso}} = Peluquería)</i>"]:::flowNode
+    Step17 -->|"Maquillaje Integral"| BotPr_3["📄 Ficha Maquillaje Providencia<br/><i>({{curso}} = Maquillaje)</i>"]:::flowNode
+    Step17 -->|"Estética Integral"| BotPr_4["📄 Ficha Estética Providencia<br/><i>({{curso}} = Estética)</i>"]:::flowNode
+    Step17 -->|"Cosmetología"| BotPr_5["📄 Ficha Cosmetología Providencia<br/><i>({{curso}} = Cosmetología)</i>"]:::flowNode
+    Step17 -->|"Masoterapia I."| BotPr_6["📄 Ficha Masoterapia Providencia<br/><i>({{curso}} = Masoterapia)</i>"]:::flowNode
+    Step17 -->|"Pastelería y Rep."| BotPr_7["📄 Ficha Pastelería Providencia<br/><i>({{curso}} = Pastelería)</i>"]:::flowNode
     Step17 -->|"Otro"| Step32
 ```
 
 ---
 
-## Tabla de Mapeo de Sub-Bots en Kommo
+## Catálogo de Fichas (sin sub-bots)
 
-| Sede | Programa de Estudio | ID Bot Hijo en Kommo |
-|---|---|:---:|
-| **Maipú** | Estilista Unisex / Peluquería Unisex | `86298` |
-| **Maipú** | Maquillaje Integral | `86446` |
-| **Maipú** | Estética Integral / Cosmetología | `86402` |
-| **Maipú** | Masoterapia Integral | `86408` |
-| **Maipú** | Pastelería y Repostería | `86694` |
-| **Providencia** | Estilista Unisex / Peluquería Unisex | `86374` |
-| **Providencia** | Maquillaje Integral | `86430` |
-| **Providencia** | Estética Integral / Cosmetología | `86404` |
-| **Providencia** | Masoterapia Integral | `86420` |
-| **Providencia** | Pastelería y Repostería | `86448` |
+| Sede | Programa de Estudio | Atributo que guarda |
+|---|---|---|
+| **Maipú** | Estilista Unisex / Peluquería Unisex | `{{curso}}` = Estilista / Peluquería |
+| **Maipú** | Maquillaje Integral | `{{curso}}` = Maquillaje |
+| **Maipú** | Estética Integral / Cosmetología | `{{curso}}` = Estética / Cosmetología |
+| **Maipú** | Masoterapia Integral | `{{curso}}` = Masoterapia |
+| **Maipú** | Pastelería y Repostería | `{{curso}}` = Pastelería |
+| **Providencia** | Estilista Unisex / Peluquería Unisex | `{{curso}}` = Estilista / Peluquería |
+| **Providencia** | Maquillaje Integral | `{{curso}}` = Maquillaje |
+| **Providencia** | Estética Integral / Cosmetología | `{{curso}}` = Estética / Cosmetología |
+| **Providencia** | Masoterapia Integral | `{{curso}}` = Masoterapia |
+| **Providencia** | Pastelería y Repostería | `{{curso}}` = Pastelería |
+
+> Las fichas son **una sola por carrera** (no por sede): el contenido se arma con las variables `{{curso}}` y `{{sede}}` para evitar duplicación de flujos.
 
 ---
 
-## Acciones de CRM Asociadas
+## Acciones de Salida (Make.com)
 
-1. **Etiquetado (`set_tag`):**
-   * Al seleccionar Maipú: agrega etiqueta `Sede Maipú`.
-   * Al seleccionar Providencia: agrega etiqueta `Sede Providencia`.
-2. **Derivación a Atención Humana:**
-   * En casos de opción *«Otra Consulta»*, tras solicitar el mensaje libre se cambia el estado del lead al ID de pipeline `88567243` (*Consulta abierta / En espera de respuesta*).
-   * En caso de excepción técnica (`on_error` global), el lead pasa automáticamente al estado `88180143`.
+1. **Captura de variables (`set_attribute`):**
+   * Al seleccionar Maipú: guarda `{{sede}}` = `Maipú`.
+   * Al seleccionar Providencia: guarda `{{sede}}` = `Providencia`.
+   * Al elegir carrera: guarda `{{curso}}`.
+2. **Derivación a atención humana:**
+   * En *«Otra Consulta»*, tras solicitar el mensaje libre, se dispara un **Webhook a Make** que: registra el lead en `Leads Admisión 2027`, avisa a la asesora según `{{sede}}`, agrega el contacto a Brevo y **pausa el bot**.
+   * En caso de excepción técnica, el flujo reinicia la bienvenida (sin pipeline de Kommo).
+
+---
+
+## Ver también
+- [[integrations_map]] — mapa de integraciones.
+- [[Flujo-Unico-Integral-2027]] — flujo único maestro.
+- [[05-Mapa-Flujos-Comunicacion]] — flujos por canal y sede.

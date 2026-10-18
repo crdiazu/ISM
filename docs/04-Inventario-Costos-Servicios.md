@@ -21,7 +21,7 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 | 2 | Hosting + Correo | Rafael Prato (servidor propio) | Luis Felipe | Anual | [Verificar] | ✅ Pagado | Próximo: 04/12/2026 |
 | 3 | Alarmas Federal | Federal Chile | Luis Felipe | Mensual | [Verificar] | ⚠️ Verificar | [Verificar] |
 | 4 | Cámaras / Wi-Fi | Manuel Cofré (camsys.cl) | Luis Felipe | Según servicio | [Verificar] | ⚠️ Verificar | [Verificar] |
-| 5 | Línea móvil Entel (Kommo) | Entel | Empresa | Mensual | [Verificar] | ✅ Ya contratada por empresa | 15/09/2026 |
+| 5 | Línea móvil Entel (ex Kommo) | Entel | Empresa | Mensual | [Verificar] | 🟡 Línea liberada al dejar Kommo | 15/09/2026 |
 | 6 | Línea móvil Entel (Chatfuel) | Entel | Luis Felipe | Mensual | [Verificar] | ⚠️ Cambiar titularidad | 15/09/2026 |
 | 7 | Línea móvil Entel (WhatsApp) | Entel | Luis Felipe | Mensual | [Verificar] | ⚠️ Cambiar titularidad | 15/09/2026 |
 | 8 | Teléfono fijo Maipú | Movistar | Empresa | Mensual | [Verificar] | ✅ Activo | [Verificar] |
@@ -39,7 +39,7 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 | 13  | **Facebook/Instagram Ads**   | Meta               | Cuenta publicitaria | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
 | 14  | **Google Ads**               | Google             | Cuenta publicitaria | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
 | 15  | **BSale**                    | BSale              | Suscripción         | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
-| 16  | **Kommo**                    | Kommo              | CRM                 | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
+| 16  | **Kommo** (⛔ dado de baja) | Kommo              | CRM                 | —             | —           | —              | —           | ⛔ No se usa desde 17-oct-2026 |
 | 17  | **Chatfuel**                 | Chatfuel           | Chatbot WhatsApp    | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
 | 18  | **Brevo**                    | Brevo              | Email marketing     | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
 | 19  | **Make**                     | Make               | Automatización      | [Verificar]   | [Verificar] | [Verificar]    | [Verificar] | ⬜ Pendiente        |
@@ -89,7 +89,8 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 
 | Plataforma | Costo mensual estimado | Notas |
 |---|---|---|
-| Kommo | [Verificar] | CRM con problemas en bot |
+| Kommo (⛔ dado de baja) | — | Reemplazado por hoja de leads en Google Sheets |
+| Google Sheets (Leads Admisión 2027) | $0 | CRM ligero |
 | BSale | [Verificar] | Facturación electrónica |
 | **Subtotal CRM** | **[Verificar]** | |
 
@@ -97,7 +98,7 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 
 | Servicio | Costo mensual estimado | Notas |
 |---|---|---|
-| Línea Kommo (Entel) | [Verificar] | Ya contratada por empresa |
+| Línea ex Kommo (Entel) | [Verificar] | Línea liberada al dejar Kommo |
 | Línea Chatfuel (Entel) | [Verificar] | Pendiente cambio titularidad |
 | Línea WhatsApp (Entel) | [Verificar] | Pendiente cambio titularidad |
 | Teléfono fijo Maipú (Movistar) | [Verificar] | |
@@ -133,7 +134,7 @@ empresa: "Centro de Educación Politécnica y Compañía Limitada"
 - [ ] Revisar facturas de Meta Ads últimos 6 meses
 - [ ] Revisar facturas de Google Ads últimos 6 meses
 - [ ] Revisar panel de-bsale para costo de suscripción
-- [ ] Revisar panel de Kommo para costo de suscripción
+- [x] ~~Revisar panel de Kommo para costo de suscripción~~ (Kommo dado de baja el 17-oct-2026)
 - [ ] Revisar panel de Chatfuel para costo de suscripción
 - [ ] Revisar panel de Brevo para costo de suscripción
 - [ ] Revisar panel de Make para costo de suscripción

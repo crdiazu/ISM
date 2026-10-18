@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura Digital Unificada — Admisión 2027 Instituto Santa María",
+    "output": "ISM/docs/archify-arquitectura-unificada.html",
+    "quality_profile": "standard",
+    "views": [
+      {
+        "id": "captacion-omnicanal",
+        "label": "1. Captación Omnicanal",
+        "focus": ["aspirantes", "meta_ads", "web_ism", "chatfuel_core"],
+        "note": "El tráfico digital de redes sociales y sitio web confluye de inmediato en Chatfuel WhatsApp."
+      },
+      {
+        "id": "ia-24-7",
+        "label": "2. Asesoría IA Santa MarIA",
+        "focus": ["chatfuel_core", "ia_santa_maria", "sedes_kb"],
+        "note": "La IA atiende 24/7 con enfoque de alta empleabilidad, cotizaciones y pre-matrícula directa."
+      },
+      {
+        "id": "operacion-secretarias",
+        "label": "3. App Secretarias Móvil",
+        "focus": ["chatfuel_core", "app_secretarias", "equipo_ventas"],
+        "note": "Las secretarias gestionan chats en caliente desde su celular sin intermediarios ni costos de CRM."
+      }
+    ]
+  },
+  "components": [
+    { "id": "aspirantes", "type": "external", "label": "Aspirantes 2027", "sublabel": "Consultas WhatsApp / Web", "pos": [40, 270], "size": [140, 60] },
+    { "id": "meta_ads", "type": "external", "brand": "meta", "label": "Meta Ads & IG", "sublabel": "Campañas de Admisión", "pos": [250, 150], "size": [140, 60] },
+    { "id": "web_ism", "type": "frontend", "brand": "wordpress", "label": "Sitio Web ISM", "sublabel": "ismchile.cl / Widget", "pos": [250, 390], "size": [140, 60] },
+    { "id": "chatfuel_core", "type": "messagebus", "label": "Chatfuel Cloud", "sublabel": "Motor Omnicanal WhatsApp", "pos": [480, 270], "size": [160, 60], "tag": "+56 9 6428 5484" },
+    { "id": "ia_santa_maria", "type": "backend", "label": "Santa MarIA (IA)", "sublabel": "gpt-5.4-nano 24/7", "pos": [720, 150], "size": [150, 60], "tag": "3 Especialistas" },
+    { "id": "sedes_kb", "type": "database", "label": "Base de Conocimiento", "sublabel": "Maipú y Providencia", "pos": [970, 150], "size": [150, 60], "tag": "Empleabilidad" },
+    { "id": "app_secretarias", "type": "cloud", "label": "App Móvil Chatfuel", "sublabel": "iOS & Android", "pos": [720, 390], "size": [150, 60], "tag": "Alertas Push" },
+    { "id": "equipo_ventas", "type": "security", "label": "Secretarias ISM", "sublabel": "Atención Humana / Sede", "pos": [970, 390], "size": [150, 60], "tag": "Cierre Matrícula" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Ecosistema Unificado Instituto Santa María (Cero Costos Extra)", "wraps": ["meta_ads", "web_ism", "chatfuel_core", "ia_santa_maria", "sedes_kb", "app_secretarias", "equipo_ventas"] },
+    { "kind": "security-group", "label": "Núcleo Inteligente Chatfuel (Sin Kommo ni Make)", "wraps": ["chatfuel_core", "ia_santa_maria", "sedes_kb", "app_secretarias"] }
+  ],
+  "connections": [
+    { "id": "c-asp-meta", "from": "aspirantes", "to": "meta_ads", "label": "anuncios", "variant": "emphasis" },
+    { "id": "c-asp-web", "from": "aspirantes", "to": "web_ism", "label": "visitas", "variant": "emphasis" },
+    { "id": "c-meta-chat", "from": "meta_ads", "to": "chatfuel_core", "label": "clic a WhatsApp", "fromSide": "right", "toSide": "top" },
+    { "id": "c-web-chat", "from": "web_ism", "to": "chatfuel_core", "label": "botón WhatsApp", "fromSide": "right", "toSide": "bottom", "labelDy": -20, "labelDx": -35 },
+    { "id": "c-chat-ia", "from": "chatfuel_core", "to": "ia_santa_maria", "label": "atención 24/7", "variant": "emphasis", "fromSide": "top", "toSide": "left" },
+    { "id": "c-ia-kb", "from": "ia_santa_maria", "to": "sedes_kb", "label": "consulta mallas", "variant": "default", "labelDy": -22 },
+    { "id": "c-chat-app", "from": "chatfuel_core", "to": "app_secretarias", "label": "alerta en vivo", "variant": "emphasis", "fromSide": "bottom", "toSide": "left" },
+    { "id": "c-app-ventas", "from": "app_secretarias", "to": "equipo_ventas", "label": "toma control", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Simplificación Radical",
+      "items": [
+        "Se elimina Kommo CRM ($30 USD/usuario/mes) y Make.com ($10-$30 USD/mes)",
+        "Chatfuel centraliza captura, IA conversacional y Live Chat en una sola suscripción ya pagada",
+        "Ahorro neto de ~$1.800 a $2.200 USD anuales (~$1.7M a $2.1M CLP)"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Operatividad Secretarías",
+      "items": [
+        "Las secretarias reciben alertas en su celular al ingresar un prospecto calificado",
+        "Al responder desde la app, la IA se pausa de inmediato sin desconfigurar nada",
+        "Acceso multiagente ilimitado sin pagar licencias adicionales"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Posicionamiento Institucional",
+      "items": [
+        "Término 'oficios' eliminado de todas las respuestas institucionales",
+        "Enfoque en 'Cursos de formación técnica y laboral con alta empleabilidad y rápida salida laboral'",
+        "Menú optimizado de 3 opciones y especialistas dedicados para Maipú y Providencia"
+      ]
+    }
+  ]
+}

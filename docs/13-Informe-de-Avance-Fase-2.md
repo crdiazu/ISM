@@ -15,6 +15,11 @@ progreso_global: "65%"
 ---
 # INFORME DE AVANCE Y ESTADO DE SITUACIÓN — FASE 2
 
+> [!info] Anexo de actualización — 17 de octubre de 2026
+> **Salida de Kommo.** Con posterioridad a la emisión de este informe (11-oct-2026), el Instituto **dejó de usar Kommo CRM**. La gestión comercial y el registro de prospectos se migraron a un **CRM ligero: Google Sheets (`Leads Admisión 2027`) + Make.com**, con avisos a las asesoras de sede y nutrición por **Brevo**.
+>
+> Por lo tanto, las menciones a Kommo, "Salesbot", "10 sub-bots" y al pipeline `88567243` en el cuerpo de este informe **corresponden al estado vigente al 11-oct-2026 y quedan como registro histórico**. El flujo vigente está documentado en [[Flujo-Unico-Integral-2027]] y [[Flujo-Atencion-Whatsapp-Principal]].
+
 ## Consultoría en Tecnología, Ecosistema Digital y Marketing
 
 ### Instituto Santa María (ISM) — Sedes Maipú y Providencia

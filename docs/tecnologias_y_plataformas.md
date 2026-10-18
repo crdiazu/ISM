@@ -25,16 +25,24 @@ Permite crear un perfil de empresa (con horarios, dirección web), configurar me
 2. Regístrate usando un número de teléfono exclusivo para la empresa (no puede ser el mismo de tu WhatsApp personal a menos que lo conviertas).
 **Modelo de Suscripción:** La app normal es gratuita. Si a futuro se requiere la *API de WhatsApp Business* (para enviar mensajes masivos automáticos integrados con el CRM sin usar un teléfono físico), eso sí tiene costos por volumen de mensajes a través de proveedores (BSPs).
 
-## 3. Kommo
-**¿Qué es?** 
-Un CRM (Customer Relationship Management) especializado en ventas conversacionales (Mensajería).
-**¿Qué hace?**
-Centraliza todos los mensajes entrantes (WhatsApp, Instagram, Facebook, Web) en embudos de ventas visuales. Permite a los vendedores llevar un seguimiento ordenado de cada prospecto desde el primer contacto hasta que se matricula.
-**¿Cómo registrarse?**
-1. Ve a [kommo.com/es](https://www.kommo.com/es/).
-2. Haz clic en "Prueba gratis" (tienen 14 días gratuitos).
-3. Regístrate con un correo corporativo.
-**Modelo de Suscripción:** Es de pago. Se paga una licencia mensual o anual por cada usuario (vendedor/administrador) que tenga acceso a la plataforma.
+## 3. Kommo — ⛔ DESCONTINUADO
+**Estado:** Se **deja de usar** desde el 17 de octubre de 2026 para el flujo de Admisión 2027.
+
+**¿Qué era?** Un CRM (Customer Relationship Management) de ventas conversacionales que centralizaba los mensajes en embudos visuales.
+
+**¿Por qué se dio de baja?**
+- Licencia de pago **por usuario**, costosa para las sedes (las asesoras no tenían cupo).
+- El cierre se hacía por fuera (correo/WhatsApp), por lo que el CRM no aportaba seguimiento real.
+- El bot nativo (Salesbot) era rígido y presentaba errores.
+
+**Reemplazo:** base de leads en **Google Sheets (`Leads Admisión 2027`)** orquestada con **Make**, avisos a las asesoras y nutrición por **Brevo**.
+
+## 3.b. Google Sheets (base de leads) — NUEVO
+**¿Qué es?** Una hoja de cálculo de Google que actúa como **CRM ligero** para los prospectos de Admisión 2027.
+**¿Qué hace?** Registra cada lead (fecha, nombre, teléfono, curso, sede, canal, estado, asesora asignada, notas). Reemplaza el pipeline de Kommo sin costo por usuario.
+**¿Cómo se accede?** Con una cuenta de Google institucional; Make escribe las filas automáticamente.
+**Modelo de Suscripción:** Gratuito con cuenta Google.
+> Detalle de uso: ver [[base_leads_sheets]].
 
 ## 4. Brevo (anteriormente Sendinblue)
 **¿Qué es?** 
@@ -50,7 +58,7 @@ Permite crear bases de datos de alumnos y prospectos, enviar newsletters, diseñ
 **¿Qué es?** 
 Una plataforma de integración y automatización visual (similar a Zapier pero más avanzada).
 **¿Qué hace?**
-Actúa como el "puente" o "middleware". Conecta aplicaciones que normalmente no se hablan entre sí. Por ejemplo: *Cuando alguien llena un formulario en Facebook (Meta) o habla al bot, Make captura esos datos y los inserta automáticamente como un nuevo lead en Kommo y como un suscriptor en Brevo.*
+Actúa como el "puente" o "middleware". Conecta aplicaciones que normalmente no se hablan entre sí. Por ejemplo: *Cuando alguien llena un formulario en Facebook (Meta) o habla al bot, Make captura esos datos, los registra como un nuevo lead en la hoja `Leads Admisión 2027`, avisa a la asesora de la sede correspondiente y lo agrega como suscriptor en Brevo.*
 **¿Cómo registrarse?**
 1. Ve a [make.com](https://www.make.com/).
 2. Crea una cuenta gratuita.

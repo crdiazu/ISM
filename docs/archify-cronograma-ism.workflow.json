@@ -17,7 +17,7 @@
         "id": "fase-2",
         "label": "Fase 2: Optimización y Pauta",
         "focus": ["aprobacion", "bots_make", "pauta_ads", "landing_conv"],
-        "note": "Ajuste de bots en Kommo y Make, encendido de pauta en Meta Ads y landing web."
+        "note": "Ajuste de bots en Chatfuel y Make (migración fuera de Kommo), encendido de pauta en Meta Ads y landing web."
       },
       {
         "id": "fase-3",
@@ -48,14 +48,14 @@
   "nodes": [
     { "id": "kickoff", "lane": "direccion", "col": 0, "type": "frontend", "label": "Kickoff ISM", "sublabel": "definición prioridades", "tag": "19 Ago", "width": 132 },
     { "id": "accesos", "lane": "marketing", "col": 0, "type": "security", "label": "Recepción Accesos", "sublabel": "claves maestras", "width": 132 },
-    { "id": "auditoria", "lane": "marketing", "col": 1, "type": "backend", "label": "Auditoría Stack", "sublabel": "Kommo, Make, Brevo", "tag": "diagnóstico", "width": 132 },
+    { "id": "auditoria", "lane": "marketing", "col": 1, "type": "backend", "label": "Auditoría Stack", "sublabel": "Chatfuel, Make, Brevo", "tag": "diagnóstico", "width": 132 },
     { "id": "canales_diag", "lane": "canales", "col": 1, "type": "cloud", "label": "Alineación Canales", "sublabel": "WordPress & IG", "width": 132 },
     { "id": "aprobacion", "lane": "direccion", "col": 2, "type": "security", "label": "Aprobación Fase 1", "sublabel": "informe Mary Luz", "tag": "04 Sep", "width": 132 },
     { "id": "bots_make", "lane": "marketing", "col": 2, "type": "backend", "label": "Ajuste Bots & Make", "sublabel": "flujos reparados", "width": 132 },
     { "id": "pauta_ads", "lane": "marketing", "col": 3, "type": "frontend", "label": "Pauta Digital", "sublabel": "Meta Ads & Brevo", "tag": "01 Oct", "width": 132 },
     { "id": "landing_conv", "lane": "canales", "col": 3, "type": "cloud", "label": "Landing Matrícula", "sublabel": "captura prospectos", "width": 132 },
     { "id": "apertura", "lane": "direccion", "col": 4, "type": "frontend", "label": "Apertura Admisión", "sublabel": "lanzamiento 2027", "tag": "01 Nov", "width": 132 },
-    { "id": "crm_leads", "lane": "admision", "col": 4, "type": "backend", "label": "Seguimiento CRM", "sublabel": "leads diarios Kommo", "width": 132 },
+    { "id": "crm_leads", "lane": "admision", "col": 4, "type": "backend", "label": "Seguimiento Leads", "sublabel": "hoja Admisión 2027", "width": 132 },
     { "id": "matriculas", "lane": "admision", "col": 5, "type": "backend", "label": "Matrículas 2027", "sublabel": "cierre primera ronda", "width": 132 },
     { "id": "informe_final", "lane": "direccion", "col": 5, "type": "frontend", "label": "Informe Final", "sublabel": "traspaso y control", "tag": "30 Nov", "width": 132 }
   ],
@@ -79,7 +79,7 @@
       "title": "Fase 1: Diagnóstico y Accesos",
       "items": [
         "Control total y auditoría de credenciales de todas las herramientas",
-        "Diagnóstico de fallos en bots de Kommo y flujos Make",
+        "Diagnóstico de fallos en bots y flujos Make",
         "Alineación con Antonia para la web y Fran para Instagram"
       ]
     },
@@ -97,7 +97,7 @@
       "title": "Fase 3: Admisión y Matrícula 2027",
       "items": [
         "Lanzamiento masivo de matrícula y captación intensiva",
-        "Seguimiento y conversión en tiempo real de prospectos en CRM",
+        "Seguimiento y conversión en tiempo real de prospectos (hoja de leads)",
         "Entrega de informe final de desempeño y transición consolidada"
       ]
     }

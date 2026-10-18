@@ -61,15 +61,14 @@ Para revisar la interacción de Antonia con WordPress de manera objetiva:
 
 | Componente | Estado | Notas |
 |---|---|---|
-| **CMS** | WordPress | Verificar versión actual |
-| **Hosting** | Servidor de Rafael Prato | Hosting ilimitado |
+| **CMS** | WordPress (tema `vault` + `vault-child`, Elementor) | Medido 17-10-2026 |
+| **Hosting** | HostGator (Apache) | Actualizado (antes Rafael Prato) |
 | **Dominio** | www.ismchile.cl | Verificar renovación |
-| **Optimización imágenes** | ShortPixel | Activo |
-| **Analytics** | Facebook Pixel (1073420354461901) | Vía PixelYourSite |
-| **Formularios** | [Verificar] | WPForms / Contact Form 7 |
-| **Caché** | [Verificar] | Plugin activo |
-| **Seguridad** | [Verificar] | Wordfence / Sucuri |
-| **Backup** | [Verificar] | Solución de respaldo |
+| **Optimización imágenes** | ShortPixel declarado | ⚠️ **Sin efecto real**: sin WebP, PNG de 490 KB en portada, 92 recursos sin `Cache-Control` |
+| **Analytics** | Google Tag Manager `GTM-MFW478HP` + Google tag `GT-MBNST67` + Google Ads `AW-687054614` | ⚠️ **Meta Pixel `1073420354461901` ya NO está en el sitio** (verificado 17-10-2026) |
+| **Formularios** | Gravity Forms (`/contacto`) + Contact Form 7 (13 landings) | Medido 17-10-2026 |
+| **Caché** | Autoptimize (JS/CSS `immutable` 1 año) | ⚠️ Portada `no-store` + cookie `PHPSESSID`; sin compresión HTTP |
+| **Seguridad** | Sin cabeceras HSTS/CSP en el sitio público | ⚠️ Listado de directorios activo en `/wp-content/uploads/` |
 
 ### 3.2. Páginas actuales
 
@@ -80,8 +79,8 @@ Para revisar la interacción de Antonia con WordPress de manera objetiva:
 | Perfeccionamiento | ismchile.cl/perfeccionamiento/ | ⚠️ Verificar | Actualizar si es necesario |
 | Quiénes somos | ismchile.cl/quienes-somos/ | ✅ OK | Sin cambios |
 | Contacto | ismchile.cl/contacto/ | ✅ OK | Sin cambios |
-| **Política de Privacidad** | [No existe] | ❌ FALTA | **CREAR** (ver docs/02) |
-| **Landing Matrícula** | [No existe] | ❌ FALTA | **CREAR** para campaña |
+| **Política de Privacidad** | ismchile.cl/politica-de-privacidad/ | ✅ OK (medida 17-10-2026) | Falta meta descripción y `h1` |
+| **Landing Matrícula** | 13 páginas `landing-*` publicadas | ✅ OK (medidas 17-10-2026) | Falta meta descripción, `h1` y evento de conversión |
 
 ---
 
@@ -128,7 +127,7 @@ Para revisar la interacción de Antonia con WordPress de manera objetiva:
 | 3.3 | Actualizar fotos de cursos (material de Profe 1/2) | Antonia | 06 OCT | ⬜ |
 | 3.4 | Actualizar testimonios de alumnos | Antonia | 13 OCT | ⬜ |
 | 3.5 | Crear página de "Proceso de Admisión 2027" | Antonia | 13 OCT | ⬜ |
-| 3.6 | Integrar formularios de la landing con Make/Kommo | Cristian + Antonia | 15 OCT | ⬜ |
+| 3.6 | Integrar formularios de la landing con Make / hoja de leads | Cristian + Antonia | 15 OCT | ⬜ |
 
 ### FASE 4: Optimización para Campaña (15 OCT - 01 NOV)
 
@@ -220,4 +219,28 @@ Actividad de Antonia en ismchile.cl (Septiembre 2026)
 
 ---
 
-*Roadmap generado el 19 de agosto de 2026. Requiere aprobación de Mary Luz y cotización de Antonia.*
+## 9. AUDITORÍA DE COMPORTAMIENTO (17-10-2026)
+
+El resultado de la medición de solo lectura del sitio está en **[[14-Auditoria-Comportamiento-Web-2026]]**. Resumen de lo que este roadmap debe incorporar:
+
+**🔴 Fase A (urgente, impacta la campaña de Admisión 2027):**
+
+| # | Tarea | Responsable | Estado |
+|---|---|---|---|
+| A1 | Reinstalar **Meta Pixel** en GTM + evento `Lead` en las páginas `/gracias-*` | Cristian | ⬜ |
+| A2 | Resolver **doble conteo de Google Ads** (`AW-687054614` inline + tag GTM) | Cristian | ⬜ |
+| A3 | Validar triggers de conversión con **GTM Preview** | Cristian | ⬜ |
+| A4 | Quitar el enlace a la **línea Kommo** (`56978920810`) del sitio | Antonia | ⬜ |
+| A5 | Arreglar **links WhatsApp rotos** (dígito extra y query strings vacíos) | Antonia | ⬜ |
+| A6 | Crear **meta descripciones** en las ~49 páginas | Antonia | ⬜ |
+| A7 | Un **`h1` por página** con keyword de programa | Antonia | ⬜ |
+| A8 | Etiquetas **Open Graph / Twitter Card** para compartir en WhatsApp e IG | Antonia | ⬜ |
+| A9 | **`noindex`** de `/gracias-*` y páginas de prueba | Antonia | ⬜ |
+
+**🟡 Fase B (rendimiento):** gzip/brotli, cachear la portada (quitar `no-store` y `PHPSESSID`), imágenes a WebP, `Cache-Control` en medios, lazy loading + dimensiones, reducir las 67 imágenes de las landings y re-ejecutar Lighthouse.
+
+**🟢 Fase C (conversión y seguridad):** verificar el flujo **web → Make**, desactivar listado de directorios en `uploads`, cabeceras de seguridad y limpieza de páginas de prueba.
+
+---
+
+*Roadmap generado el 19 de agosto de 2026. Requiere aprobación de Mary Luz y cotización de Antonia. Sección 9 agregada el 18 de octubre de 2026 a partir de [[14-Auditoria-Comportamiento-Web-2026]].*

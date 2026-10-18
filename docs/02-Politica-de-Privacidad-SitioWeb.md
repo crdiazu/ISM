@@ -105,7 +105,7 @@ El tratamiento de sus datos personales se fundamenta en:
 |---|---|---|
 | **Meta (Facebook)** | Medición de conversiones publicitarias (Pixel) | Consentimiento |
 | **Servicios de email marketing** (Brevo) | Envío de comunicaciones institucionales | Consentimiento |
-| **Plataformas de automatización** (Make, Kommo, Chatfuel) | Gestión de leads y comunicación automatizada | Consentimiento / Interés legítimo |
+| **Plataformas de automatización** (Make, Chatfuel, Google Sheets) | Gestión de leads y comunicación automatizada | Consentimiento / Interés legítimo |
 | **Autoridades competentes** | Cumplimiento de obligaciones legales | Obligación legal |
 
 ---
@@ -159,7 +159,7 @@ Implementamos medidas de seguridad técnicas y organizacionales para proteger su
 
 ## 10. TRANSFERENCIAS INTERNACIONALES DE DATOS
 
-Algunos de los servicios que utilizamos (Meta, Google, plataformas de email marketing) pueden involucrar transferencias internacionales de datos. Estos proveedores están sujetos a sus propias políticas de privacidad y compromisos de protección de datos.
+- Algunos de los servicios que utilizamos (Meta, Google, plataformas de email marketing) pueden involucrar transferencias internacionales de datos. Estos proveedores están sujetos a sus propias políticas de privacidad y compromisos de protección de datos.
 
 ---
 
@@ -195,7 +195,7 @@ Si tiene preguntas o inquietudes sobre esta Política de Privacidad o sobre el t
 >
 > 1. Completar el RUT de la empresa
 > 2. Verificar qué plataformas de email marketing están activas y si efectivamente se usan para envíos
-> 3. Revisar con el equipo de Kommo/Chatfuel qué datos se almacenan exactamente
+> 3. Revisar con el equipo qué datos se almacenan exactamente en Chatfuel, Make y la hoja de leads (Google Sheets)
 > 4. Verificar la configuración actual del Facebook Pixel
 > 5. Ajustar los plazos de retención según las políticas internas de la Empresa
 > 6. Crear una **Política de Cookies** separada o integrarla en esta política

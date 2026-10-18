@@ -17,7 +17,7 @@ Este documento sirve para registrar hallazgos, auditorías de herramientas y an�
 ## Auditoría de Stack Tecnológico (Pendiente)
 *(Anotar aquí el estado de cada herramienta al revisarlas)*
 - [ ] Meta Business Suite
-- [ ] Kommo
+- [ ] Google Sheets (hoja de leads)
 - [ ] Chatfuel
 - [ ] Brevo
 - [ ] Make

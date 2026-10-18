@@ -41,11 +41,12 @@ gantt
 
     section Fase 2: Campaña y Activación (Octubre - EN CURSO)
     Lanzamiento pauta digital preliminar             :done, ads1, 2026-10-01, 2026-10-04
-    Mapeo Bot WhatsApp + 10 Sub-bots Kommo           :done, bot1, 2026-10-05, 2026-10-10
+    Mapeo Bot WhatsApp (Chatfuel) + 10 Fichas          :done, bot1, 2026-10-05, 2026-10-10
     Hito: Apertura Admisión 2027 (Precios congelados):milestone, m_adm, 2026-10-13, 0d
     Optimización semanal de pauta y flujo de leads   :active, ads2, 2026-10-05, 2026-10-31
     Actualización sitio web para matrícula (Antonia) :active, web2, 2026-10-12, 2026-10-18
     Email Marketing (Brevo) + Nutrición WhatsApp     :crm1, 2026-10-19, 2026-10-25
+    Migración fuera de Kommo (hoja de leads + Make)  :done, migk, 2026-10-17, 2026-10-17
     Preparación final landings, bots y formularios   :ready1, 2026-10-26, 2026-10-31
     Hito: Ecosistema Listo para Admisión Masiva      :milestone, m3, 2026-10-31, 0d
 
@@ -66,8 +67,8 @@ gantt
 | ----------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | **Fase 1: Diagnóstico y Acceso** | 19 Ago – 11 Sep | Inventario de accesos, auditoría técnica de plataformas (Kommo, Make, Meta, Brevo, Chatfuel, WordPress) y securización de credenciales. | ✅ Informe de Diagnóstico + Bóveda de Accesos (100%) |
 | **Fase 1.2: Optimización**       | 14 Sep – 30 Sep | Reparación de flujos rotos, roadmap web con Antonia, protocolo de contenidos y plan director de matrícula 2027.                         | ✅ Informe Final Fase 1 + Portal Ejecutivo (100%) |
-| **Fase 2: Activación y Pauta**   | 01 Oct – 31 Oct | Encendido de campañas, arquitectura de bot WhatsApp en Kommo con 10 sub-bots, apertura de preventa (13 Oct) y actualización web.         | 🚀 **En Ejecución** (Apertura 13 Oct, Aranceles Congelados) |
-| **Fase 3: Admisión 2027**        | 01 Nov – 30 Nov | Ejecución intensiva de matrícula, seguimiento diario de leads en CRM Kommo, reportes de conversión y cierre de ciclo.                   | ⏳ Planificado (Noviembre 2026)                      |
+| **Fase 2: Activación y Pauta**   | 01 Oct – 31 Oct | Encendido de campañas, arquitectura de bot WhatsApp en Chatfuel, migración fuera de Kommo (hoja de leads + Make), apertura de preventa (13 Oct) y actualización web.         | 🚀 **En Ejecución** (Apertura 13 Oct, Aranceles Congelados) |
+| **Fase 3: Admisión 2027**        | 01 Nov – 30 Nov | Ejecución intensiva de matrícula, seguimiento diario de leads en la hoja `Admisión 2027`, reportes de conversión y cierre de ciclo.                   | ⏳ Planificado (Noviembre 2026)                      |
 
 
 ---
@@ -76,6 +77,6 @@ gantt
 
 - **Luis A. Rodríguez Abarca:** Aprobación estratégica y presupuestaria.
 - **Mary Luz Leal Barrera:** Supervisión, aprobaciones operativas y definición de prioridades.
-- **Cristian (Tú):** Coordinación integral, auditoría técnica, Make, Kommo, pauta digital y reportes.
+- **Cristian (Tú):** Coordinación integral, auditoría técnica, Make, Chatfuel, hoja de leads, pauta digital y reportes.
 - **Antonia Hordern:** Diseño y desarrollo web WordPress/Elementor.
 - **Fran / Profe 1 / Profe 2:** Generación y publicación diaria de contenidos (Providencia y Maipú).

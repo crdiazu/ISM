@@ -45,7 +45,7 @@ Generar el mayor número posible de alumnos matriculados para el proceso 2027, m
 
 | Objetivo | Meta | Métrica |
 |---|---|---|
-| **Generar leads cualificados** | [Por definir] contactos nuevos | Leads en Kommo |
+| **Generar leads cualificados** | [Por definir] contactos nuevos | Leads en hoja `Admisión 2027` |
 | **Aumentar tráfico web** | +50% vs. agosto | Google Analytics |
 | **Crecer seguidores Instagram** | +[X] seguidores | Meta Business Suite |
 | **Conversiones en landing** | [X]% de visitantes a leads | Tasa de conversión |
@@ -94,7 +94,7 @@ Generar el mayor número posible de alumnos matriculados para el proceso 2027, m
 | **Google Ads** | Búsqueda intencional | [Por definir] | Cristian |
 | **Instagram orgánico** | Comunidad y confianza | $0 | Profe 1 + Profe 2 |
 | **Facebook orgánico** | Alcance y comunidad | $0 | Profe 1 + Profe 2 |
-| **WhatsApp Marketing** | Conversión directa | $0- bajo | Cristian (Kommo) |
+| **WhatsApp Marketing** | Conversión directa | $0- bajo | Cristian (Chatfuel) |
 | **Email Marketing (Brevo)** | Nutrición de leads | $0- bajo | Cristian (Make) |
 | **SEO (sitio web)** | Tráfico orgánico sostenible | $0 | Cristian + Antonia |
 
@@ -142,7 +142,7 @@ Campaña: Matrícula 2027 - ISM
 | **Anuncio** | Texto + extensiones (sitelink, llamada, ubicación) |
 | **Destino** | Landing page de admisión |
 
-#### WhatsApp Marketing (Kommo)
+#### WhatsApp Marketing (Chatfuel)
 
 | Elemento | Estrategia |
 |---|---|
@@ -170,7 +170,7 @@ Campaña: Matrícula 2027 - ISM
 ```
 SEPTIEMBRE 2026
 │ Preparación + Lanzamiento awareness
-├── Sem 1-2: Configuración de campañas, landing, Kommo
+├── Sem 1-2: Configuración de campañas, landing, Chatfuel/Make
 ├── Sem 3: Lanzamiento Meta Ads (awareness)
 └── Sem 4: Optimización + inicio Google Ads
 
@@ -193,7 +193,7 @@ NOVIEMBRE 2026
 
 | Semana | Acción | Responsable | Entregable |
 |---|---|---|---|
-| 19-22 AGO | Configurar herramientas (Kommo, Make, Brevo) | Cristian | Herramientas listas |
+| 19-22 AGO | Configurar herramientas (Chatfuel, Make, Brevo) | Cristian | Herramientas listas |
 | 25-28 AGO | Crear brief de audiencia | Cristian | Brief aprobado |
 | 01-04 SEP | Desarrollar landing page matrícula 2027 | Antonia + Cristian | Landing lista |
 | 07-11 SEP | Crear contenido base (fotos, videos, textos) | Profe 1 + Profe 2 | Banco de contenido |
@@ -274,34 +274,37 @@ NOVIEMBRE 2026
 
 ## 7. AUTOMATIZACIONES
 
-### 7.1. Flujo de lead (Make + Kommo)
+### 7.1. Flujo de lead (Chatfuel → Make → Hoja de leads)
 
 ```
 INTERESADO (Facebook/Instagram/WhatsApp/Sitio)
     │
     ▼
-Lead entra a Kommo (vía Make o integración directa)
+El bot de Chatfuel captura y califica al lead
     │
     ▼
-Automatización: Asignar状态 según fuente
-    │
-    ├──→ Facebook/Instagram → Lead = "Interesado Ads"
-    ├──→ WhatsApp → Lead = "Interesado WhatsApp"
-    └──→ Sitio web → Lead = "Interesado Web"
+Webhook a Make
     │
     ▼
-Automatización: Envío de bienvenida
+Registro en la hoja `Leads Admisión 2027` (Google Sheets)
+    │
+    ├──→ Facebook/Instagram → Canal = "Interesado Ads"
+    ├──→ WhatsApp → Canal = "Interesado WhatsApp"
+    └──→ Sitio web → Canal = "Interesado Web"
+    │
+    ▼
+Automatización: bienvenida y aviso
     │
     ├──→ Email (Brevo): Secuencia de 3 emails
-    ├──→ WhatsApp (Kommo): Mensaje de bienvenida
+    ├──→ Aviso a la asesora de la sede (email/WhatsApp)
     └──→ Instagram: Seguir cuenta
     │
     ▼
-Calificación automática (Kommo)
+Calificación y seguimiento humano (hoja de leads)
     │
     ├──→ Lead frío → Email nurturing
     ├──→ Lead tibio → WhatsApp de seguimiento
-    └──→ Lead caliente → Contacto directo (secretaría)
+    └──→ Lead caliente → Contacto directo (asesora de sede)
     │
     ▼
 CONVERSIÓN → Matrícula
@@ -320,9 +323,9 @@ CONVERSIÓN → Matrícula
 
 | Automatización | Trigger | Acción |
 |---|---|---|
-| Lead desde Meta Ads | Nuevo lead en Meta | Crear contacto en Kommo + email bienvenida |
-| Lead desde formulario web | Submit en WordPress | Crear contacto en Kommo + WhatsApp bienvenida |
-| Lead desde WhatsApp | Nuevo contacto Kommo | Asignar estado + email bienvenida |
+| Lead desde Meta Ads | Nuevo lead en Meta | Registrar en hoja + email bienvenida |
+| Lead desde formulario web | Submit en WordPress | Registrar en hoja + WhatsApp bienvenida |
+| Lead desde WhatsApp | Nuevo contacto en el bot | Registrar en hoja + aviso a asesora + email bienvenida |
 | Seguimiento automático | Lead sin actividad 3 días | WhatsApp de seguimiento |
 | Alerta de lead caliente | Lead marcado "caliente" | Notificar a Cristian |
 
@@ -343,7 +346,8 @@ CONVERSIÓN → Matrícula
 
 | Herramienta | Costo mensual | Estado |
 |---|---|---|
-| Kommo | [Verificar] | Activo |
+| Kommo — **⛔ dado de baja** | — | Reemplazado por hoja de leads (Google Sheets) |
+| Google Sheets (hoja de leads) | $0 | Activo |
 | Make | [Verificar] | Activo |
 | Brevo | [Verificar] | Activo |
 | Canva Pro | [Verificar] | [Por verificar] |
@@ -370,15 +374,15 @@ CONVERSIÓN → Matrícula
 |---|---|---|---|
 | **Tráfico web** | Visitas únicas | Google Analytics | Semanal |
 | **Tráfico web** | Fuentes de tráfico | Google Analytics | Semanal |
-| **Leads** | Leads generados | Kommo | Semanal |
+| **Leads** | Leads generados | Hoja `Admisión 2027` | Semanal |
 | **Leads** | Costo por lead | Meta/Google Ads | Semanal |
 | **Engagement** | Alcance publicaciones | Meta Business Suite | Semanal |
 | **Engagement** | Tasa de interacción | Meta Business Suite | Semanal |
-| **WhatsApp** | Mensajes recibidos | Kommo | Semanal |
-| **WhatsApp** | Tasa de respuesta | Kommo | Semanal |
+| **WhatsApp** | Mensajes recibidos | Chatfuel | Semanal |
+| **WhatsApp** | Tasa de respuesta | Hoja `Admisión 2027` | Semanal |
 | **Email** | Tasa de apertura | Brevo | Quincenal |
 | **Email** | Tasa de clics | Brevo | Quincenal |
-| **Conversión** | Formularios completados | WordPress/Kommo | Semanal |
+| **Conversión** | Formularios completados | WordPress / Make | Semanal |
 | **Conversión** | Llamadas recibidas | [Verificar] | Semanal |
 | **Matrícula** | Alumnos nuevos | Registros internos | Mensual |
 
@@ -399,7 +403,7 @@ CONVERSIÓN → Matrícula
 |---|---|---|---|
 | Presupuesto insuficiente | Alta | Alto | Priorizar canales orgánicos + WhatsApp |
 | Bajo rendimiento de Ads | Media | Alto | Re-optimizar audiencia, creativos, ofertas |
-| Kommo mal configurado | Alta | Medio | Revisar flujos, testear automatizaciones |
+| Flujo de leads mal configurado | Alta | Medio | Revisar escenarios de Make, testear registro en hoja y avisos |
 | Contenido no producido | Media | Alto | Generar contenido con herramientas propias |
 | Antonia no disponible | Media | Medio | Cristian realiza cambios menores en WordPress |
 | Competencia agresiva | Media | Medio | Diferenciar con testimonios, trayectoria, cercanía |
@@ -411,8 +415,8 @@ CONVERSIÓN → Matrícula
 | Éxito | Descripción |
 |---|---|
 | **Landing lista antes del 01/11** | La página de admisión debe estar lista para el inicio formal |
-| **Kommo funcionando correctamente** | El bot de WhatsApp y las automatizaciones deben operar sin errores |
-| **Contenido constante** | Mínimo 4 publicaciones/semana en cada红 |
+| **Bot y automatizaciones funcionando correctamente** | El bot de WhatsApp, el registro en la hoja y los avisos a sedes deben operar sin errores |
+| **Contenido constante** | Mínimo 4 publicaciones/semana en cada red |
 | **Leads cualificados** | No solo cantidad, sino calidad (interesados reales) |
 | **Coordinación del equipo** | Profe 1/2, Antonia, Cristian y Mary Luz alineados |
 | **Datos para decisión** | Métricas claras para optimizar durante la campaña |

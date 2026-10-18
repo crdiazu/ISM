@@ -22,11 +22,11 @@ Chatfuel se arma con "Bloques" de conversación.
 4. Los cambios se guardan automáticamente.
 
 ### 3. Pedir Datos (User Input)
-Para que Make y Kommo funcionen, el bot *necesita* pedir datos.
+Para que Make y la base de leads funcionen, el bot *necesita* pedir datos.
 1. En un bloque, se usa la herramienta "User Input" (o "Save User Input").
 2. El bot pregunta: *"¿Cuál es tu número de WhatsApp para que un asesor te contacte?"*.
 3. La respuesta del usuario se guarda en una "Variable" llamada `telefono`.
-4. Make leerá esa variable `telefono` y la enviará al CRM.
+4. Make leerá esa variable `telefono` y la escribirá en la hoja de leads.
 
 ## Detalles Adicionales
 - **Inteligencia Artificial (IA):** Chatfuel permite conectar IA (como ChatGPT) para que el bot responda de forma natural leyendo un documento PDF (ej. un PDF con todos los cursos y precios). Si usas esto, asegúrate de mantener el PDF actualizado.

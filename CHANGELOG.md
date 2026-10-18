@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+- **Auditoría de comportamiento web (`docs/14-Auditoria-Comportamiento-Web-2026.md`):** diagnóstico de solo lectura de `www.ismchile.cl` medido el 17-10-2026. Hallazgos críticos: **sin Meta Pixel** (Meta Ads optimizando a ciegas), **posible doble conteo de Google Ads** (`AW-687054614` inline + tag en `GTM-MFW478HP`), **0 meta descripciones / 0 `h1` / 0 Open Graph** en 9/9 páginas revisadas, ~12,3 MB de recursos **sin compresión** ni caché de imágenes, TTFB 1,6–2,1 s, enlace a la **línea Kommo descontinuada** todavía publicado y ~20 páginas `/gracias-*` indexables. Plan de acción priorizado en 3 fases (A: campaña, B: rendimiento, C: conversión/seguridad) con línea base antes/después.
+- **Migración fuera de Kommo:** se deja de usar el CRM de pago para el flujo de Admisión 2027. El registro y seguimiento de prospectos pasa a **Google Sheets (`Leads Admisión 2027`) + Make.com**, con avisos a las asesoras de sede y nutrición por **Brevo**. Actualizados `integrations_map`, `ecosistema_digital`, `Flujo-Atencion-Whatsapp-Principal`, `05-Mapa-Flujos-Comunicacion`, `Flujo-Unico-Integral-2027`, README, ROADMAP y Plan Estratégico Q4 2026.
 - Pauta publicitaria masiva y seguimiento de conversión de matrícula en Sedes Providencia y Maipú.
 - Despliegue de actualización landing page en WordPress con Antonia Hordern.
 

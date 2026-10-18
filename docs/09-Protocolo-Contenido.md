@@ -227,8 +227,8 @@ Antes de publicar, verificar:
 | Tipo de interacción | Tiempo máximo | Responsable |
 |---|---|---|
 | **Comentario en publicación** | 2 horas (horario laboral) | Profe 1/2 o Cristian |
-| **Mensaje directo (Instagram)** | 1 hora (horario laboral) | Cristian (vía Kommo) |
-| **WhatsApp** | 30 minutos (horario laboral) | Kommo (bot) + Cristian |
+| **Mensaje directo (Instagram)** | 1 hora (horario laboral) | Cristian (vía Meta Business Suite) |
+| **WhatsApp** | 30 minutos (horario laboral) | Chatfuel (bot) + asesora de sede |
 | **Email** | 24 horas | Cristian |
 
 ### 8.2. Respuestas tipo

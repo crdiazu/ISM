@@ -42,13 +42,18 @@ Felipe está formalizando el traspaso de sus funciones digitales. Identificó **
 
 **Plataformas afectadas:**
 - **Make** (Integromat) - Automatizaciones
-- **Kommo** (CRM) - Gestión comercial
+- ~~**Kommo** (CRM) - Gestión comercial~~ → **DADO DE BAJA** (ver nota)
 
-**Margen:** Varios meses antes del próximo cobro, pero se debe decidir:
+> [!success] Decisión 17-oct-2026
+> Se **deja de usar Kommo**. El flujo de Admisión 2027 se migró a **Chatfuel + Make + Google Sheets (`Leads Admisión 2027`) + Brevo**. Por lo tanto:
+> - **Kommo:** dar de baja al término del período pagado; no requiere traspaso de titularidad ni medio de pago.
+> - **Make:** **se mantiene** (es el orquestador del nuevo flujo), por lo que **sí requiere** traspaso de titularidad y medio de pago.
+
+**Margen:** Varios meses antes del próximo cobro.
 
 **Acción requerida:** El Instituto debe definir:
-- Si **mantiene ambas herramientas** → traspasar titularidad y medio de pago.
-- Si **da de baja** alguna o ambas → dar de baja al término del período pagado.
+- **Make:** traspasar titularidad y medio de pago (se mantiene).
+- **Kommo:** dar de baja al término del período pagado (ya no se usa).
 
 **Estado:** Pendiente de decisión.
 
@@ -85,8 +90,8 @@ Felipe está completando la revisión de:
 | Meta Ads | Débito Cta Cte Maipú | Alto - se corta con la salida | 🔴 Urgente |
 | WhatsApp Business | Débito Cta Cte Maipú | Alto - se corta con la salida | 🔴 Urgente |
 | Meta Verified | Débito Cta Cte Maipú | Alto - verificación se pierde | 🔴 Urgente |
-| Make | Crédito personal Felipe | Medio - varios meses de margen | 🟡 Pendiente |
-| Kommo | Crédito personal Felipe | Medio - varios meses de margen | 🟡 Pendiente |
+| Make | Crédito personal Felipe | Medio - varios meses de margen | 🟡 Pendiente (se mantiene) |
+| Kommo | Crédito personal Felipe | Bajo - no se usa | ⛔ Dar de baja |
 | Google Ads | En revisión por Felipe | Por determinar | 🟠 En revisión |
 
 ---
@@ -96,4 +101,4 @@ Felipe está completando la revisión de:
 - Este email es la base para la pregunta #20 sobre presupuesto/pauta.
 - Confirmar con Karin y Nataly si ya tomaron acción sobre el medio de pago de Meta.
 - Verificar el estado de la revisión de Google Ads con Felipe.
-- Definir con el equipo si Make y Kommo se mantienen o se dan de baja.
+- Definir con el equipo el traspaso de pago de Make (se mantiene) y dar de baja Kommo.

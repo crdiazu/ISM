@@ -31,17 +31,17 @@ Además de la ejecución de marketing, el rol principal abarca la **asesoría en
 
 ---
 
-## ⚙️ Stack Tecnológico Integrado (Estado al 11 de Octubre de 2026)
+## ⚙️ Stack Tecnológico Integrado (Estado al 17 de Octubre de 2026)
 
 | Plataforma | Función Principal | Estado |
 |---|---|---|
 | **WordPress & Elementor** | Sitio web institucional ([ismchile.cl](https://www.ismchile.cl)) | 🟢 Activo (Coordinación con Antonia para landing Admisión 2027) |
 | **Meta Business Suite** | Gestión centralizada de Facebook, Instagram y Meta Ads | 🟢 Campañas estructuradas y pauta de preventa en curso |
 | **WhatsApp Business** | Canal de atención directa a alumnos y postulantes (+56 9 9900 59968) | 🟢 Activo con vinculación de escritorios y enrutador |
-| **Kommo (CRM)** | Gestión de embudo comercial y 10 sub-bots automáticos | 🟢 Configurado con flujos por sede y carrera |
-| **Chatfuel** | Chatbot web y soporte WhatsApp | 🟢 Flujos revisados y actualizados con fechas 2027 |
+| **Chatfuel** | Chatbot web, WhatsApp y respuestas automáticas | 🟢 Flujos revisados y actualizados con fechas 2027 |
 | **Brevo** | Email marketing masivo y comunicaciones transaccionales | 🟢 Operativo con credenciales centralizadas |
-| **Make (Integromat)** | Automatizaciones y webhooks entre CRM y formularios | 🟢 Escenarios mapeados y en operación |
+| **Make (Integromat)** | Automatizaciones y webhooks (registro de leads, avisos) | 🟢 Escenarios mapeados y en operación |
+| **Google Sheets** | Base de leads `Leads Admisión 2027` (CRM ligero) | 🟢 Reemplaza a Kommo |
 
 ---
 
@@ -61,7 +61,8 @@ Además de la ejecución de marketing, el rol principal abarca la **asesoría en
 - `11-Carta-Gantt-Cronograma.md`: Cronograma maestro de hitos y plazos de entrega (Fase 1 y 2).
 - `12-Informe-de-Avance-Fase-1.md`: Informe oficial de avance y estado de situación (Cierre Fase 1).
 - `13-Informe-de-Avance-Fase-2.md`: Informe ejecutivo de Fase 2 (Apertura Admisión 13 Octubre y Automatizaciones).
-- `Flujo-Atencion-Whatsapp-Principal.md`: Arquitectura del chatbot enrutador en Kommo y 10 sub-bots por sede.
+- `14-Auditoria-Comportamiento-Web-2026.md`: Auditoría de comportamiento y optimización total de www.ismchile.cl (rendimiento, SEO, tracking, conversión y seguridad, con plan por fases).
+- `Flujo-Atencion-Whatsapp-Principal.md`: Arquitectura del bot enrutador (Chatfuel) y derivación a sedes.
 - `Planilla-Credenciales-Reunion-23-Septiembre.md`: Registro de verificación y toma de control de plataformas.
 - `Estudio-Mercado-ISM-Chile-2026.md`: Benchmark de mercado técnico profesional en Santiago.
 - `Plan Estratégico - ISM - Q4 2026.md`: Documento rector del plan estratégico para el cuarto trimestre.

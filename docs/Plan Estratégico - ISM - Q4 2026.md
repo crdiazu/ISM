@@ -62,7 +62,7 @@ operativo
 * **Qué se entrega:**
   1. **Informe de resultados:** Cuántos prospectos llegaron y cuántos se inscribieron.
   2. **Estudio de mercado:** Ver [[Estudio-Mercado-ISM-Chile-2026]].
-  3. **Plataforma lista:** Chatbot y página web funcionando con control de pagos (ver [[ecosistema_digital]]).
+  3. **Plataforma lista:** Chatbot, página web y registro de leads (hoja + Make) funcionando (ver [[ecosistema_digital]]).
 
 
 ---
@@ -113,7 +113,7 @@ operativo
 | 2   | Hosting y correos (Rafael Prato) | Rafael Prato            | ✅ Activo      | ⬜ SI                         |
 | 3   | Meta Business Suite (FB/IG/Ads)  | Mary Luz                | ⚠️ Pendiente  | ⬜                            |
 | 4   | WhatsApp Business (56990059968)  | Mary Luz                | ✅ En posesión | ⬜                            |
-| 5   | Kommo (CRM) — línea 56978920810  | Mary Luz                | ⚠️ Pendiente  | ⬜                            |
+| 5   | Kommo (CRM) — **DADO DE BAJA** (línea 56978920810 liberada) | — | ⛔ No se usa | ⬜                            |
 | 6   | Chatfuel — línea 56952006799     | Mary Luz                | ⚠️ Pendiente  | ⬜                            |
 | 7   | Brevo (email marketing)          | Mary Luz                | ⚠️ Pendiente  | ⬜                            |
 | 8   | Make (automatización)            | Mary Luz                | ⚠️ Pendiente  | ⬜                            |
@@ -156,7 +156,7 @@ DÍA 9 DE CADA MES (Oct - Dic)
 ENERO 2027 - CIERRE Y ENTREGA
 ├── Informe de resultados campaña
 ├── Estudio de mercado ESTP Chile (ver [[Estudio-Mercado-ISM-Chile-2026]])
-├── Plataforma y CRM en régimen (ver [[ecosistema_digital]])
+├── Plataforma y registro de leads en régimen (ver [[ecosistema_digital]])
 └── Definición de honorarios operación continua
 ```
 

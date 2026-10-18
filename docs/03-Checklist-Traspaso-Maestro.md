@@ -11,6 +11,9 @@ coordinador_tecnologia: "Cristian (8h/semana)"
 
 # CHECKLIST MAESTRO DE TRASPASO DE ACCESOS Y SISTEMAS
 
+> [!info] Nota de actualización — 17-oct-2026
+> El Instituto **dejó de usar Kommo**. Las menciones a Kommo en este checklist son históricas: no es necesario traspasar su titularidad ni configurar 2FA. Ver [[traspaso_digital_pago_urgente]] y [[integrations_map]].
+
 ## Instituto Santa María (ISM) — Agosto 2026
 
 **Propósito:** Documento de referencia para el traspaso completo de accesos, sistemas y conocimiento del Instituto Santa María, durante la desvinculación de Luis Felipe Rodríguez Andreani.

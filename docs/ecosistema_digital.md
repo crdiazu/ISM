@@ -1,5 +1,8 @@
 # Ecosistema Digital - Instituto Santa María (ISM)
 
+> [!info] Actualización 17-oct-2026 — salida de Kommo
+> El ecosistema **ya no usa Kommo CRM**. La gestión comercial y el registro de prospectos se hace con un **CRM ligero**: **Google Sheets + Make.com**, con avisos a las asesoras de sede y nutrición por **Brevo**.
+
 ## Visión General del Ecosistema
 
 El siguiente diagrama ilustra cómo interactúan los diferentes actores (equipo de trabajo, prospectos), las plataformas digitales y los sistemas internos para crear un flujo de trabajo optimizado y centralizado.
@@ -18,6 +21,7 @@ graph TD
         Fran[Fran<br>Gestión IG Providencia y Maipú]:::personas
         Dev[Desarrollador Web<br>Soporte y Mantenimiento]:::personas
         Asesor[Cristian<br>Asesor Tecnológico y Mkt]:::personas
+        Asesoras[Asesoras de sede<br>Nataly / Karin]:::personas
     end
 
     %% Canales de Captación (Front)
@@ -31,7 +35,7 @@ graph TD
 
     %% Herramientas de Interacción (Bots/Mensajería)
     subgraph Interaccion [Herramientas de Respuesta]
-        Chatfuel[Chatfuel<br>Chatbot Web/FB]:::canales
+        Chatfuel[Chatfuel<br>Chatbot Web/FB/WhatsApp]:::canales
         WAB[WhatsApp<br>Business]:::canales
     end
 
@@ -40,9 +44,9 @@ graph TD
         Make((Make<br>Conector Central)):::auto
     end
 
-    %% Gestión y Retención (Backoffice)
+    %% Gestión y Retención (sin CRM de pago)
     subgraph CRM_Email [Gestión, Ventas y Retención]
-        Kommo[(Kommo CRM<br>Gestión de Ventas)]:::gestion
+        Sheets[(Google Sheets<br>Leads Admisión 2027)]:::gestion
         Brevo[Brevo<br>Email Mkt & Nutrición]:::gestion
     end
 
@@ -52,7 +56,7 @@ graph TD
     Prospecto -->|Interactúa / DM| IG_Maipu
     Prospecto -->|Interactúa / Mensaje| FB
     Prospecto -->|Clic en Anuncio| Ads
-    
+
     Fran -->|Publica contenido diario| IG_Provi
     Fran -->|Publica contenido diario| IG_Maipu
     Fran -->|Gestión de comunidad| FB
@@ -71,10 +75,12 @@ graph TD
     Chatfuel -->|Filtra y Capta| Make
     WAB -->|Consultas Directas| Make
 
-    Make -->|Envía prospecto calificado| Kommo
+    Make -->|Registra prospecto calificado| Sheets
+    Make -->|Avisa al lead según sede| Asesoras
     Make -->|Sincroniza contactos| Brevo
 
-    Kommo -->|Gestión de cierre| Prospecto
+    Asesoras -->|Gestión de cierre por WhatsApp de sede| Prospecto
+    Sheets -->|Seguimiento diario| Asesoras
     Brevo -->|Emails automáticos| Prospecto
 
 ```
@@ -95,11 +101,11 @@ Quiero compartir con ustedes el mapa conceptual de cómo estamos estructurando y
 
 1.  **Nuestros Canales de Captación (La Vitrina):** Aquí es donde entran nuestras sedes. Bajo la gestión unificada de **Fran**, nuestros Instagrams (Providencia y Maipú), nuestra página de **Facebook**, y nuestro **Sitio Web** (mantenido por nuestro equipo de desarrollo aliado) funcionarán en sincronía. Cada publicación diaria sobre lo que pasa en nuestras aulas alimentará estos canales para atraer a los alumnos correctos.
 2.  **Atención Inmediata (La Recepción Digital):** Cuando un prospecto llega interesado por nuestros canales, entra en acción **Chatfuel** (nuestro chatbot) y **WhatsApp Business**. Esto asegura que cualquier persona que visite la web o nuestras redes reciba una respuesta inmediata y sea filtrada correctamente 24/7.
-3.  **El Cerebro Conector (Make):** En lugar de tener plataformas desconectadas, utilizaremos **Make** como el puente central. Su trabajo es invisible pero crucial: toma los datos de quien nos escribe en la web, en redes o en WhatsApp, y los organiza automáticamente sin que nadie tenga que copiar y pegar datos a mano.
-4.  **El Cierre y la Relación (Kommo y Brevo):** Una vez que Make toma un contacto, lo envía a nuestro equipo comercial a través de **Kommo CRM** para cerrar la matrícula. Simultáneamente, el contacto entra a **Brevo**, lo que nos permite mantener una relación a largo plazo enviando correos automatizados (novedades, inicios de clases, recordatorios).
+3.  **El Cerebro Conector (Make):** En lugar de tener plataformas desconectadas, utilizaremos **Make** como el puente central. Su trabajo es invisible pero crucial: toma los datos de quien nos escribe en la web, en redes o en WhatsApp, los registra y los organiza automáticamente sin que nadie tenga que copiar y pegar datos a mano.
+4.  **El Registro y la Relación (Hoja de Leads y Brevo):** Una vez que Make toma un contacto, lo deja registrado en la base **Leads Admisión 2027** (Google Sheets) y avisa a la asesora de la sede correspondiente, que cierra la matrícula desde el WhatsApp de su sede. Simultáneamente, el contacto entra a **Brevo**, lo que nos permite mantener una relación a largo plazo enviando correos automatizados (novedades, inicios de clases, recordatorios).
 
 **Mi rol en este proceso:**
-Estaré auditando, configurando y optimizando este flujo. Me aseguraré de que las piezas (Meta, Kommo, Make, Chatfuel y Brevo) estén 100% operativas y comunicándose a la perfección. Mi objetivo en estos 3 meses es transferirles el conocimiento necesario para que ustedes tengan el control total de esta maquinaria, mientras los asesoro tecnológicamente para tomar las mejores decisiones.
+Estaré auditando, configurando y optimizando este flujo. Me aseguraré de que las piezas (Meta, Chatfuel, Make, la hoja de leads y Brevo) estén 100% operativas y comunicándose a la perfección. Mi objetivo en estos 3 meses es transferirles el conocimiento necesario para que ustedes tengan el control total de esta maquinaria, mientras los asesoro tecnológicamente para tomar las mejores decisiones.
 
 Quedo atento a cualquier duda sobre este flujo.
 

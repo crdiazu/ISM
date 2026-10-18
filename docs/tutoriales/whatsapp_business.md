@@ -30,4 +30,4 @@ Sirven para no escribir lo mismo 100 veces (ej. requisitos de matrícula, horari
 
 ## Detalles Adicionales
 - **Etiquetas:** Usa las etiquetas de WhatsApp (Ajustes > Etiquetas) para marcar chats (ej: "Pagó Matrícula", "Interesado en Masoterapia").
-- **Conexión con Make:** En el futuro, los mensajes que lleguen aquí pueden ser capturados por Make para crear contactos automáticamente en Kommo.
+- **Conexión con Make:** En el futuro, los mensajes que lleguen aquí pueden ser capturados por Make para registrar contactos automáticamente en la base de leads (Google Sheets).
