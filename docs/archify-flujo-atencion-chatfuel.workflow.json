@@ -47,7 +47,7 @@
   "mainPath": ["lead", "wa_inbox", "santa_maria", "especialista", "catalogo", "cierre_24_7"],
   "nodes": [
     { "id": "lead", "lane": "usuario", "col": 0, "type": "external", "label": "Postulante", "sublabel": "WhatsApp / Web", "width": 136 },
-    { "id": "wa_inbox", "lane": "ia_core", "col": 1, "type": "frontend", "label": "Chatfuel Inbox", "sublabel": "+56 9 6428 5484", "tag": "Admisión 2027", "width": 136 },
+    { "id": "wa_inbox", "lane": "ia_core", "col": 1, "type": "frontend", "label": "Chatfuel Inbox", "sublabel": "+56 9 5200 6799", "tag": "Admisión 2027", "width": 136 },
     { "id": "santa_maria", "lane": "ia_core", "col": 2, "type": "backend", "label": "Santa MarIA", "sublabel": "Tono empático + 3 opciones", "tag": "IA 24/7", "width": 136 },
     { "id": "especialista", "lane": "ia_core", "col": 3, "type": "backend", "label": "Especialista Sede", "sublabel": "Maipú / Providencia", "tag": "Cursos Técnicos", "width": 136 },
     { "id": "catalogo", "lane": "ia_core", "col": 4, "type": "database", "label": "Alta Empleabilidad", "sublabel": "Mallas, horarios, precios", "width": 136 },
@@ -79,7 +79,9 @@
       "items": [
         "Santa MarIA orienta con foco en cursos de alta empleabilidad y salida laboral rápida",
         "Menú adaptativo de hasta 3 opciones numeradas (1️⃣, 2️⃣, 3️⃣) para máxima claridad en móviles",
-        "Especialistas dedicados por sede (Maipú y Providencia) con aranceles y mallas vigentes"
+        "Sede Maipú: General Ordóñez 253 (Metro Plaza de Maipú)",
+        "Sede Providencia: Alarife Gamboa 071 (Metro Santa Isabel)",
+        "Especialistas dedicados por sede con aranceles y mallas vigentes"
       ]
     },
     {

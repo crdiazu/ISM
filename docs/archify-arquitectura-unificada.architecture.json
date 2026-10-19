@@ -30,7 +30,7 @@
     { "id": "aspirantes", "type": "external", "label": "Aspirantes 2027", "sublabel": "Consultas WhatsApp / Web", "pos": [40, 270], "size": [140, 60] },
     { "id": "meta_ads", "type": "external", "brand": "meta", "label": "Meta Ads & IG", "sublabel": "Campañas de Admisión", "pos": [250, 150], "size": [140, 60] },
     { "id": "web_ism", "type": "frontend", "brand": "wordpress", "label": "Sitio Web ISM", "sublabel": "ismchile.cl / Widget", "pos": [250, 390], "size": [140, 60] },
-    { "id": "chatfuel_core", "type": "messagebus", "label": "Chatfuel Cloud", "sublabel": "Motor Omnicanal WhatsApp", "pos": [480, 270], "size": [160, 60], "tag": "+56 9 6428 5484" },
+    { "id": "chatfuel_core", "type": "messagebus", "label": "Chatfuel Cloud", "sublabel": "Motor Omnicanal WhatsApp", "pos": [480, 270], "size": [160, 60], "tag": "+56 9 5200 6799" },
     { "id": "ia_santa_maria", "type": "backend", "label": "Santa MarIA (IA)", "sublabel": "gpt-5.4-nano 24/7", "pos": [720, 150], "size": [150, 60], "tag": "3 Especialistas" },
     { "id": "sedes_kb", "type": "database", "label": "Base de Conocimiento", "sublabel": "Maipú y Providencia", "pos": [970, 150], "size": [150, 60], "tag": "Empleabilidad" },
     { "id": "app_secretarias", "type": "cloud", "label": "App Móvil Chatfuel", "sublabel": "iOS & Android", "pos": [720, 390], "size": [150, 60], "tag": "Alertas Push" },
@@ -64,9 +64,10 @@
       "dot": "emerald",
       "title": "Operatividad Secretarías",
       "items": [
-        "Las secretarias reciben alertas en su celular al ingresar un prospecto calificado",
-        "Al responder desde la app, la IA se pausa de inmediato sin desconfigurar nada",
-        "Acceso multiagente ilimitado sin pagar licencias adicionales"
+        "Sede Maipú: General Ordóñez 253 (Metro Plaza de Maipú)",
+        "Sede Providencia: Alarife Gamboa 071 (Metro Santa Isabel)",
+        "Las secretarias reciben alertas push en su celular al ingresar un prospecto calificado",
+        "Al responder desde la app móvil, la IA se pausa automáticamente sin fricción"
       ]
     },
     {
