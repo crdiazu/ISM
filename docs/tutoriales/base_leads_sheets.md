@@ -3,7 +3,8 @@
 ## ¿Qué es y para qué sirve en el ISM?
 Es el "embudo de ventas" del Instituto, pero en una planilla de Google. Aquí Make deja registrado a cada persona interesada en los cursos (prospectos). Sirve para que el equipo sepa exactamente en qué estado está cada persona (¿Preguntó? ¿Está pensando? ¿Se matriculó?) sin pagar una licencia de CRM por usuario.
 
-> Reemplaza a Kommo desde el 17-oct-2026.
+> Reemplaza a Kommo desde el 17-oct-2026.  
+> **Planilla activa vinculada en Make (18-nov-2026):** [`ism data capture`](https://docs.google.com/spreadsheets/d/10gwdNWbrI1zwH-PgNtTnf2fJb73QHwLaOSZCsuauVUs/edit) — **Spreadsheet ID:** `10gwdNWbrI1zwH-PgNtTnf2fJb73QHwLaOSZCsuauVUs` (Pestaña: `Hoja 1`, Columnas: `nombre`, `email`, `telefono`, `sede`, `curso `, `fecha`).
 
 ## Estructura de la hoja
 

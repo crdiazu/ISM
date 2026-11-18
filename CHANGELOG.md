@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-11-18
+### Added & Changed
+- **Purga definitiva de accesos (`docs/16-Registro-Cambios-Web-Make-Accesos-2027.md`):** Eliminación permanente de usuarios `admin_ism_chile` (`luis.felipe.rodriguez74@gmail.com`) e `ism` (`frodriguez@ismchile.cl`) en WordPress (`crdiazu` queda como único Administrador). Salida definitiva de `frodriguez@ismchile.cl` (`LUIS RODRIGUEZ`) de la Organización `4116444` en Make.com, quedando la administración en manos de Cristián Díaz y Mary Luz Leal.
+- **Migración y actualización de Formularios Contact Form 7:** Creación e integración de `Formulario CF7_Contacto` (`17516`) en `/contacto/` reemplazando Gravity Forms (`gform_21`). Actualización de destinatarios en 9 de 15 formularios CF7 hacia `secretaria@ismchile.cl` / `secretariamaipu@ismchile.cl` con copias a `directora@ismchile.cl` y `cristian@ismchile.cl`.
+- **Actualización de Landings Admisión 2027:** `/contacto/` (`12352`), `/landing-pasteleria/` (`14733`) y `/landing-cosmetologia-esteticaintegral/` (`14185`) actualizadas a `PROCESO DE ADMISION 2027 | ABIERTO`.
+- **Automatización Make.com (`2248037`) y Google Sheets:** Reactivación del escenario maestro `Ingreso Leads y Contacts de Formularios` con procesamiento secuencial cada 10 minutos para vaciar la cola de 93 leads acumulados en el webhook (`1199945`) y vinculación del Módulo 10 a la planilla `ism data capture` (`10gwdNWbrI1zwH-PgNtTnf2fJb73QHwLaOSZCsuauVUs`) de Cristián Díaz.
+
 ## [Unreleased]
 - **Auditoría de comportamiento web (`docs/14-Auditoria-Comportamiento-Web-2026.md`):** diagnóstico de solo lectura de `www.ismchile.cl` medido el 17-10-2026. Hallazgos críticos: **sin Meta Pixel** (Meta Ads optimizando a ciegas), **posible doble conteo de Google Ads** (`AW-687054614` inline + tag en `GTM-MFW478HP`), **0 meta descripciones / 0 `h1` / 0 Open Graph** en 9/9 páginas revisadas, ~12,3 MB de recursos **sin compresión** ni caché de imágenes, TTFB 1,6–2,1 s, enlace a la **línea Kommo descontinuada** todavía publicado y ~20 páginas `/gracias-*` indexables. Plan de acción priorizado en 3 fases (A: campaña, B: rendimiento, C: conversión/seguridad) con línea base antes/después.
 - **Migración fuera de Kommo:** se deja de usar el CRM de pago para el flujo de Admisión 2027. El registro y seguimiento de prospectos pasa a **Google Sheets (`Leads Admisión 2027`) + Make.com**, con avisos a las asesoras de sede y nutrición por **Brevo**. Actualizados `integrations_map`, `ecosistema_digital`, `Flujo-Atencion-Whatsapp-Principal`, `05-Mapa-Flujos-Comunicacion`, `Flujo-Unico-Integral-2027`, README, ROADMAP y Plan Estratégico Q4 2026.

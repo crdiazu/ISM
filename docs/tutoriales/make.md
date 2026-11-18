@@ -29,6 +29,14 @@ Como tu rol es optimizar y configurar, muchas veces solo entrarás a revisar si 
 - **Conexiones (Connections):** Para que Make pueda hablar con Google Sheets o Facebook, tienes que darle permiso. Esto se hace en la pestaña "Connections". Si cambias la clave de Google, debes actualizarla allí.
 - **Cuidado con los Bucles:** Evita crear escenarios infinitos (ej. la hoja manda a Brevo, y Brevo manda de vuelta creando el mismo usuario 100 veces).
 
+## 2026-11-18 — Consolidación de Organización y Escenario Maestro
+
+- **Control de la Organización (`4116444`):** Salida definitiva de `frodriguez@ismchile.cl` (`LUIS RODRIGUEZ`). La administración queda en manos de **Cristián Díaz** (`crdiazu@gmail.com`) y **Mary Luz Leal** (`mluzleal@gmail.com`).
+- **Escenario Maestro Unificado (`2248037` — *Ingreso Leads y Contacts de Formularios*):**
+  - Se determinó mantener **únicamente activo este escenario** (los otros 10 escenarios secundarios quedan en **OFF**).
+  - Conectado al Webhook central de Contact Form 7 (`https://hook.us2.make.com/9gqxj4it27ro1j51rkgoth6tsnwo8qei`, Hook ID `1199945`).
+  - Configurado con procesamiento secuencial (`Process data in order = Yes` y `Process old data = ON`) cada **10 minutos** para vaciar los 93 leads de la cola hacia la planilla Google Sheets **`ism data capture`** (`10gwdNWbrI1zwH-PgNtTnf2fJb73QHwLaOSZCsuauVUs`).
+
 ## 2026-10-17
 ### 📊 Resumen de Consumo y Créditos
 

@@ -9,6 +9,13 @@ reunion_remediacion: "2026-09-24 (Miércoles, 2 horas)"
 
 # ANÁLISIS DE SEGURIDAD — INSTITUTO SANTA MARÍA (ISM)
 
+> [!success] Actualización de Cierre de Accesos — 18-nov-2026
+> Se ejecutó la purga definitiva de los accesos residuales de ex-colaborador (ver [[16-Registro-Cambios-Web-Make-Accesos-2027]]):
+> - **WordPress (`ismchile.cl`):** Eliminados definitivamente `admin_ism_chile` (`luis.felipe.rodriguez74@gmail.com`) e `ism` (`frodriguez@ismchile.cl`). Único administrador activo: `crdiazu` (`crdiazu@gmail.com`).
+> - **Make.com (Org `4116444`):** Salida definitiva de `frodriguez@ismchile.cl` (`LUIS RODRIGUEZ`). Quedan únicamente Cristián Díaz y Mary Luz Leal como Administradores.
+> - **Easy WP SMTP:** Verificado operando con `form@ismchile.cl` (`mail.ismchile.cl:465` SSL) y remitente `noreply@ismchile.cl`.
+> - **Contact Form 7:** 9 de 15 formularios actualizados sin el correo de Felipe (enviando copias a `directora@ismchile.cl` y `cristian@ismchile.cl`).
+
 > [!info] Nota de actualización — 17-oct-2026
 > El Instituto **dejó de usar Kommo**. Las referencias a Kommo en esta auditoría (plataformas, 2FA, accesos) son históricas y ya no requieren acción. El stack vigente es WordPress, Meta, Chatfuel, Make, Brevo y la hoja de leads en Google Sheets.
 

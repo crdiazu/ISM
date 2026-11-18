@@ -123,27 +123,27 @@ coordinador_tecnologia: "Cristian (8h/semana)"
 | **Portfolio ISM** | https://www.ahdiseno.com/portfolio-item/web-instituto-santa-maria/ |
 | **Estado** | ⚠️ Pendiente notificar salida de Luis Felipe |
 
-### 3.3. Accesos WordPress
+### 3.3. Accesos WordPress (Actualizado 18-nov-2026)
 
 | Campo | Detalle |
 |---|---|
 | **URL de acceso** | https://www.ismchile.cl/wp-admin/ |
-| **Usuario** | admin_ism_chile |
-| **Contraseña** | [Verificar — OCR corrupto en documento original] |
-| **Estado** | ✅ Acceso confirmado por Luis Felipe |
-| **Pendiente** | Notificar a Antonia Hordern el cambio de administración |
+| **Administrador único vigente** | `crdiazu` (`crdiazu@gmail.com`) |
+| **Cuentas eliminadas** | `admin_ism_chile` (`luis.felipe.rodriguez74@gmail.com`) e `ism` (`frodriguez@ismchile.cl`) — Purgadas el 17/11/2026 |
+| **Estado** | ✅ Control exclusivo asegurado por Cristián Díaz |
+| **Detalle técnico** | Ver [[16-Registro-Cambios-Web-Make-Accesos-2027]] |
 
 ### 3.4. Stack Tecnológico del Sitio
 
 | Componente | Detalle |
 |---|---|
-| **CMS** | WordPress |
+| **CMS** | WordPress + Elementor |
 | **Optimización de imágenes** | ShortPixel (sp-ao.shortpixel.ai) |
 | **Analytics** | Facebook Pixel (ID: 1073420354461901) vía PixelYourSite |
-| **Formularios** | WPForms / Contact Form 7 (verificar) |
-| **Caché** | Verificar plugin activo |
-| **Seguridad** | Verificar plugin activo (Wordfence, Sucuri, etc.) |
-| **Backup** | Verificar si existe solución de respaldo |
+| **Formularios** | Contact Form 7 (`v6.2.5`) + CF7 to Webhook (`v5.1.0`) + Successful Redirection for CF7 |
+| **Envío SMTP** | Easy WP SMTP (`v2.15.1`) vía `mail.ismchile.cl:465` (`form@ismchile.cl`) |
+| **Feed Instagram** | Flow-Flow Social Feeds (`v5.0.8`) shortcode `[ff id="1"]` en `/quienes-somos/` |
+| **Seguridad** | Wordfence Security activo |
 
 ### Checklist
 
@@ -229,15 +229,8 @@ coordinador_tecnologia: "Cristian (8h/semana)"
 | **Cuenta publicitaria** | Asociada a la empresa |
 | **Administradora** | Mary Luz Leal Barrera |
 | **Estado** | ✅ Traspasado |
-clave mia correo : iYxjb&cDa~C0*+BH
-
-
-kmTNY+iQH$&S5~ht === 
-
-
-https://www.facebook.com/ismchile
-
-
+| **Página oficial** | https://www.facebook.com/ismchile |
+| **Credenciales** | [Bóveda de Accesos] |
 
 ### Checklist
 
