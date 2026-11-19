@@ -64,6 +64,8 @@ Además de la ejecución de marketing, el rol principal abarca la **asesoría en
 - `14-Auditoria-Comportamiento-Web-2026.md`: Auditoría de comportamiento y optimización total de www.ismchile.cl (rendimiento, SEO, tracking, conversión y seguridad, con plan por fases).
 - `15-Informe-Estrategico-Arquitectura-Bot-Admision-2027.md`: Arquitectura unificada de bots y atención Admisión 2027.
 - `16-Registro-Cambios-Web-Make-Accesos-2027.md`: Bitácora técnica de purga de accesos en WordPress/Make, migración de formularios CF7 y conexión con Google Sheets (18-nov-2026).
+- `17-Plan-Migracion-Sin-Download-Monitor-GF-Make.md`: Auditoría completa de `Download Monitor`, plan de redirecciones `301` en WPCode, puente Gravity Forms → Make y plantilla maestra HTML Admisión 2027 (19-nov-2026).
+- `snippets/`: Código PHP listo para WPCode (`wpcode-redirecciones-download-monitor.php`, `wpcode-gravityforms-to-make.php`) y plantillas de correo HTML responsive (`plantilla-correo-admision-2027-make.html`, `plantilla-correo-admision-2027-gravityforms.html`).
 - `Flujo-Atencion-Whatsapp-Principal.md`: Arquitectura del bot enrutador (Chatfuel) y derivación a sedes.
 - `Planilla-Credenciales-Reunion-23-Septiembre.md`: Registro de verificación y toma de control de plataformas.
 - `Estudio-Mercado-ISM-Chile-2026.md`: Benchmark de mercado técnico profesional en Santiago.

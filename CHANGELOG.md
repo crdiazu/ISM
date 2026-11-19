@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2026-11-19
+### Added & Changed
+- **Retiro definitivo de Download Monitor y Auditoría de Enlaces (`docs/17-Plan-Migracion-Sin-Download-Monitor-GF-Make.md`):** Auditoría completa del sitio web (tema, Elementor, CF7, Gravity Forms y Chatfuel en vivo) identificando >75 referencias `/download/<ID>/` y resguardando los PDFs históricos de `dlm_uploads` (incluido RIOHS Ley Karin `16390`, Enfermería `15234` y Perfeccionamiento).
+- **Snippets productivos para WPCode (`docs/snippets/`):**
+  - `wpcode-redirecciones-download-monitor.php`: mapa de redirecciones `301` desde `/download/<ID>/` y `/landing/download/` hacia archivos nativos en Medios WP (0 enlaces rotos sin reactivar el plugin).
+  - `wpcode-gravityforms-to-make.php`: puente `gform_after_submission` hacia el Webhook de Make `2248037`, con exclusión explícita de privacidad para el formulario `#29` (*Ingreso de denuncias - Ley Karin*) y `#30`.
+- **Plantillas Maestras HTML Admisión 2027 (`docs/snippets/`):** Creación de `plantilla-correo-admision-2027-make.html` y `plantilla-correo-admision-2027-gravityforms.html` con diseño responsive, beneficios 2027 actualizados, botón a PDF 2027, acceso directo a Chatfuel WhatsApp (`+56 9 5200 6799`) y teléfonos/horarios oficiales de Providencia y Maipú.
+
 ## [0.4.0] - 2026-11-18
 ### Added & Changed
 - **Purga definitiva de accesos (`docs/16-Registro-Cambios-Web-Make-Accesos-2027.md`):** Eliminación permanente de usuarios `admin_ism_chile` (`luis.felipe.rodriguez74@gmail.com`) e `ism` (`frodriguez@ismchile.cl`) en WordPress (`crdiazu` queda como único Administrador). Salida definitiva de `frodriguez@ismchile.cl` (`LUIS RODRIGUEZ`) de la Organización `4116444` en Make.com, quedando la administración en manos de Cristián Díaz y Mary Luz Leal.
