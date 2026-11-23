@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2026-11-22
+### Fixed & Changed
+- **Make.com (`2248037`) migrado a Opción B (sin Kommo):** Eliminados módulos de Kommo CRM, `Sleep 10s` y `Set variables`; conectado `Webhook (1) ➔ Router (16) ➔ Google Sheets (10) + Email SMTP (15)` con plantilla Admisión 2027 y pruebas de envío confirmadas en vivo.
+- **Rescate de Vault / UiCore (`uicore-framework`):** Resuelto error HTTP 500 por incompatibilidad tras actualización de Elementor creando archivo stub en `elementor/assets/lib/waypoints/waypoints.min.js`, elevando `WP_MEMORY_LIMIT` a `256M` en `wp-config.php` y regenerando CSS de Elementor, Vault y caché de Autoptimize.
+- **Correcciones visuales y de canales en WordPress:** Respaldo CSS `linear-gradient` para secciones `.ui-fluid-animation-6` en `/gracias-*`, limpieza de regla `.xl65` de Excel, ajuste de íconos sociales del header, desactivación de `Smart Sticky` en Vault y actualización de enlaces de WhatsApp (`Vault ➔ Social` y *Widgets*) desde la línea antigua de Kommo (`56978920810`) hacia Chatfuel (`56952006799`).
+- **SEO & Enlazado interno en Home:** Actualización de `H1`, enlaces internos desde portada hacia cursos y avances de configuración Yoast SEO.
+
 ## [0.4.1] - 2026-11-19
 ### Added & Changed
 - **Retiro definitivo de Download Monitor y Auditoría de Enlaces (`docs/17-Plan-Migracion-Sin-Download-Monitor-GF-Make.md`):** Auditoría completa del sitio web (tema, Elementor, CF7, Gravity Forms y Chatfuel en vivo) identificando >75 referencias `/download/<ID>/` y resguardando los PDFs históricos de `dlm_uploads` (incluido RIOHS Ley Karin `16390`, Enfermería `15234` y Perfeccionamiento).
